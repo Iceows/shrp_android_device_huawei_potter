@@ -18,8 +18,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Inherit from anne device
-$(call inherit-product, device/huawei/anne/device.mk)
+# Inherit from potter device
+$(call inherit-product, device/huawei/potter/device.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
@@ -27,5 +27,5 @@ $(call inherit-product, vendor/omni/config/common.mk)
 PRODUCT_NAME := omni_potter
 PRODUCT_DEVICE := potter
 PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := P Smart 2019
+PRODUCT_MODEL := P Smart 2019-2020
 PRODUCT_MANUFACTURER := Huawei
