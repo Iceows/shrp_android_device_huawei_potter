@@ -1,0 +1,5 @@
+on property:sys.usb.config=mtp,adb
+    start adbd
+
+on property:sys.usb.config=adb
+    start adbd
