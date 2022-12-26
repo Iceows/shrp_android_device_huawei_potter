@@ -1,25 +1,24 @@
-# blk_device                                    mount_point fs_type
-/dev/block/mmcblk1p1                            /sdcard     vfat      defaults        defaults
-defaults                                        /storage    ramdisk   defaults        defaults
-defaults                                        /dload      ramdisk   defaults        defaults
-/dev/block/bootdevice/by-name/system     /system     ext4      defaults        defaults
-/dev/block/bootdevice/by-name/vendor     /vendor     ext4      defaults        defaults
-/dev/block/bootdevice/by-name/product    /product    ext4      defaults        defaults
-/dev/block/bootdevice/by-name/version    /version    ext4      defaults        defaults
-/dev/block/bootdevice/by-name/cache      /cache      ext4      defaults        defaults
-/dev/block/bootdevice/by-name/userdata   /data       f2fs      defaults        length=-16384,fileencryption=aes-256-xts:aes-256-cts,reservedsize=20M
-/dev/block/bootdevice/by-name/misc       /misc       emmc      defaults        defaults
-/dev/block/bootdevice/by-name/boot       /boot       emmc      defaults        defaults
-/dev/block/bootdevice/by-name/recovery   /recovery   emmc      defaults        defaults
-/dev/block/bootdevice/by-name/cust       /cust       ext4      defaults        defaults
-/dev/block/bootdevice/by-name/uboot      /uboot      emmc      defaults        defaults
-/dev/block/bootdevice/by-name/splash2    /splash2    ext4      defaults        defaults
-/dev/block/bootdevice/by-name/3rdmodem   /3rdmodem   ext4      defaults        defaults
-/dev/block/bootdevice/by-name/system     /newsys     ext4      defaults        defaults
-/dev/block/bootdevice/by-name/odm        /odm        ext4      defaults        defaults
-/dev/block/sde1                          /usb        vfat      defaults        defaults
-/dev/block/sde1                          /usb_ufs    vfat      defaults        defaults
-/dev/block/sda1                          /usb_emmc   vfat      defaults        defaults
-/dev/block/by-name/modem_om    /modem_log    ext4    rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_log_file:s0    wait,check,notrim
-/dev/block/by-name/modem_fw    /modem_fw    ext4    defaults        defaults
-/dev/block/by-name/modemnvm_img    /mnvm2:0    ext4   rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_nv_file:s0   wait,check,notrim
+# System partitions
+/cache			ext4	/dev/block/platform/hi_mci.0/by-name/cache		flags=backup=1
+/cust			ext4	/dev/block/platform/hi_mci.0/by-name/cust		flags=backup=1
+/data			f2fs	/dev/block/platform/hi_mci.0/by-name/userdata		flags=backup=1;encryptable=footer
+/odm			ext4	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1
+/product		ext4	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1
+/system                 ext4	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1
+/system_image		emmc	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;display="System Image";flashimg
+/vendor			ext4	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1
+/vendor_image		emmc	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1;display="Vendor Image";flashimg
+/version		ext4	/dev/block/platform/hi_mci.0/by-name/version		flags=backup=1
+/kernel			emmc	/dev/block/platform/hi_mci.0/by-name/kernel		flags=backup=1;flashimg
+/ramdisk		emmc	/dev/block/platform/hi_mci.0/by-name/ramdisk		flags=backup=1;flashimg
+
+# Recovery partitions
+/recovery_ramdisk	emmc	/dev/block/platform/hi_mci.0/by-name/recovery_ramdisk	flags=backup=1;flashimg
+
+# Protected partitions
+/oeminfo		emmc    /dev/block/platform/hi_mci.0/by-name/oeminfo		flags=backup=1;flashimg
+/splash2		ext4	/dev/block/platform/hi_mci.0/by-name/splash2		flags=backup=1
+
+# External storage
+/external_sd		auto	/dev/block/mmcblk1p1  /dev/block/mmcblk1		flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg		auto	/dev/block/sda1 /dev/block/sda				flags=display="USB-OTG";storage;wipeingui;removable
