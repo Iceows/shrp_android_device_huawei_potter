@@ -1,5 +1,5 @@
 
-allow recovery media_rw_data_file:dir { open read getattr add_name write };
+allow recovery media_rw_data_file:dir { search open read getattr add_name write };
 allow recovery media_rw_data_file:file { read open write setattr getattr create };
 
 allow recovery mtp_device:chr_file { read write getattr lock append open };
@@ -7,12 +7,16 @@ allow recovery mtp_device:chr_file { read write getattr lock append open };
 allow recovery rootfs:file { read open write setattr getattr create };
 allow recovery rootfs:lnk_file { unlink create };
 allow recovery rootfs:dir { add_name write getattr create remove_name rmdir  };
+allow recovery rootfs:fifo_file { read open create };
 
 allow recovery sysfs:file { read open write setattr getattr create };
 allow recovery sysfs:dir { open read };
 
 allow recovery selinuxfs:file { read open write setattr getattr create };
+
 allow recovery adb_data_file:dir { add_name read open write getattr };
+allow recovery adb_data_file:file { getattr };
+allow recovery adb_data_file:lnk_file { getattr };
 
 allow recovery self:process { execmem };
 allow recovery ashmem_device:chr_file { execute };
@@ -22,11 +26,14 @@ allow recovery vendor_data_file:file { getattr };
 allow recovery fingerprint_vendor_data_file:dir { read open getattr };
 allow recovery app_data_file:file { getattr };
 allow recovery app_data_file:dir { search read open getattr };
+
 allow recovery ota_package_file:dir { read getattr };
 allow recovery vndservice_contexts_file:file { getattr };
-allow recovery nonplat_service_contexts_file:file { getattr };
-allow recovery seapp_contexts_file:file { getattr };
+allow recovery service_contexts_file:file { getattr };
 allow recovery hwservice_contexts_file:file { getattr };
+allow recovery nonplat_service_contexts_file:file { getattr };
+
+allow recovery seapp_contexts_file:file { getattr };
 allow recovery sepolicy_file:file { getattr };
 
 allow recovery vfat:dir { open read };
@@ -35,3 +42,18 @@ allow recovery vfat:file { getattr };
 allow recovery default_prop:property_service { set };
 get_prop(recovery, bluetooth_prop)
 get_prop(recovery, boottime_prop)
+get_prop(recovery, ctl_bootanim_prop)
+get_prop(recovery, ctl_bugreport_prop)
+
+allow recovery cache_file:dir { mounton };
+allow recovery system_data_file:dir { open read };
+allow recovery unencrypted_data_file:dir { read open getattr };
+allow recovery unencrypted_data_file:file { getattr };
+
+allow recovery install_data_file:file { getattr };
+allow recovery kernel:system { module_request };
+allow recovery self:netlink_kobject_uevent_socket { read create };
+
+allow recovery init_exec:file { getattr };
+
+
