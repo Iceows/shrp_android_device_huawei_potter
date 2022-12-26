@@ -68,8 +68,7 @@ TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 TW_USE_NEW_MINADBD := true
-
-
+#TW_NO_SCREEN_TIMEOUT  := true
 
 
 # Selinux
@@ -86,9 +85,14 @@ SHRP_FONP_2 :=
 SHRP_FONP_3 := 
 SHRP_FLASH_MAX_BRIGHTNESS := 200
 SHRP_REC := /dev/block/platform/hi_mci.0/by-name/recovery_ramdisk
+
+# SHRP Express, enables on-the-fly theme patching (also persistent) + persistent lock
+# Default (if not set) is not using Express
+# Set this variable when true ONLY (do not use "false" or similiar)
 SHRP_EXPRESS := true
 SHRP_EXPRESS_USE_DATA := true
-SHRP_NOTCH := true
+SHRP_NOTCH := false
+
 SHRP_EXTERNAL := /external_sd
 SHRP_INTERNAL := /sdcard
 SHRP_OTG := /usb_otg
@@ -100,16 +104,16 @@ SHRP_EXTERNAL := /sdcard1
 
 # Recovery Type (for "About" section only)
 # Default (if not set): N/A
-SHRP_REC_TYPE := Normal
+SHRP_REC_TYPE := Treble
 
 # Device Type (for "About" section only)
 # Default (if not set): N/A
-SHRP_DEVICE_TYPE := A/B
+SHRP_DEVICE_TYPE := A-Only
 
 # Use this flag only if your device is A/B.
 # Default (if not set) is no A/B device
 # Set this variable when true ONLY (do not use "false" or similiar)
-SHRP_AB := true
+# SHRP_AB := true
 
 
 

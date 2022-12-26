@@ -1,19 +1,6 @@
-allow init kernel:security { setcheckreqprot };
-allow init kernel:system { module_request };
-allow init functionfs:dir { mounton };
-allow kernel device:dir { write };
-allow kernel block_device:dir { search };
-allow kernel device:chr_file { read write };
-allow kernel recovery:fd { use };
-allow logd rootfs:file { entrypoint };
-allow recovery default_prop:property_service { set };
-allow recovery media_rw_data_file:file { getattr read open write setattr create };
-allow recovery media_rw_data_file:dir { add_name write };
-allow recovery mtp_device:chr_file { read write getattr lock append open };
-allow recovery rootfs:dir { write };
-allow tee rootfs:file { read execute entrypoint };
 allow vendor_init pm_prop:property_service { set };
 allow vendor_init selinuxfs:file { write };
 allow vendor_init proc_max_map_count:file { write };
 allow vendor_init rootfs:dir { write };
+allow vendor_init kernel:security { setcheckreqprot };
 
