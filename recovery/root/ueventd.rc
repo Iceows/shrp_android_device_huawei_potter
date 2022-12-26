@@ -1,159 +1,106 @@
-subsystem adf
-    devname uevent_devname
+/dev/ion                0664    system  system
+/dev/mali0              0666    system  system
+/dev/graphics/fb2       0660    system  system
+/dev/rpmsg-hisi0        0600    media   media
+/dev/memory_throughput	0660	system	system
+/dev/memory_throughput_up_threshold	0660	system	system
 
-subsystem graphics
-    devname uevent_devpath
-    dirname /dev/graphics
+/dev/ttySPI0 		0660 	root radio
+/dev/ttySPI1 		0660 	root system
+/dev/ttySPI2 		0660 	root radio
+/dev/ttySPI3 		0660 	root system
+/dev/ttySPI4 		0440 	root root
+/dev/ttySPI5 		0660 	root system
+/dev/ttySPI6 		0660 	root system
+/dev/ttySPI7 		0660 	root radio
+/dev/ttySPI8 		0440 	root root
+/dev/ttySPI9 		0660 	root radio
+/dev/ttySPI10 	0660 	root radio
+/dev/ttySPI11 	0660 	root system
+/dev/ttySPI12 	0440 	root root
+/dev/ttySPI13 	0440 	root root
+/dev/ttySPI14 	0440 	root root
 
-subsystem drm
-    devname uevent_devpath
-    dirname /dev/dri
+/dev/hi_vdec					0660  system 	camera
+/dev/hi_venc					0660  system 	camera
 
-subsystem oncrpc
-    devname uevent_devpath
-    dirname /dev/oncrpc
+/dev/video0					0660  system 	camera
+/dev/video1					0660  system 	camera
+/dev/video2					0660  system 	camera
+/dev/video3					0660  system 	camera
+/dev/video4					0660  system 	camera
+/dev/video5					0660  system 	camera
+/dev/video6					0660  system 	camera
+/dev/video7					0660  system 	camera
+/dev/video8					0660  system 	camera
+/dev/video9					0660  system 	camera
+/dev/video10					0660  system 	camera
+/dev/video11					0660  system 	camera
+/dev/video12					0660  system 	camera
+/dev/video13					0660  system 	camera
+/dev/video14					0660  system 	camera
+/dev/video15					0660  system 	camera
+/dev/video16					0660  system 	camera
+/dev/video17					0660  system 	camera
+/dev/video18					0660  system 	camera
+/dev/media0					0660  system 	camera
+/dev/media1					0660  system 	camera
+/dev/media2					0660  system 	camera
+/dev/media3					0660  system 	camera
+/dev/media4					0660  system 	camera
+/dev/media5					0660  system 	camera
+/dev/media6					0660  system 	camera
+/dev/media7					0660  system 	camera
+/dev/media8					0660  system 	camera
+/dev/media9					0660  system 	camera
+/dev/media10					0660  system 	camera
+/dev/media11					0660  system 	camera
+/dev/media12					0660  system 	camera
+/dev/media13					0660  system 	camera
+/dev/media14					0660  system 	camera
+/dev/media15					0660  system 	camera
+/dev/media16					0660  system 	camera
+/dev/media17					0660  system 	camera
+/dev/media18					0660  system 	camera
 
-subsystem adsp
-    devname uevent_devpath
-    dirname /dev/adsp
+/dev/v4l-subdev0					0660  system 	camera
+/dev/v4l-subdev1					0660  system 	camera
+/dev/v4l-subdev2					0660  system 	camera
+/dev/v4l-subdev3					0660  system 	camera
+/dev/v4l-subdev4					0660  system 	camera
+/dev/v4l-subdev5					0660  system 	camera
+/dev/v4l-subdev6					0660  system 	camera
+/dev/v4l-subdev7					0660  system 	camera
+/dev/v4l-subdev8					0660  system 	camera
+/dev/v4l-subdev9					0660  system 	camera
+/dev/v4l-subdev10					0660  system 	camera
+/dev/v4l-subdev11					0660  system 	camera
+/dev/v4l-subdev12					0660  system 	camera
+/dev/v4l-subdev13					0660  system 	camera
+/dev/v4l-subdev14					0660  system 	camera
+/dev/v4l-subdev15					0660  system 	camera
+/dev/v4l-subdev16					0660  system 	camera
+/dev/v4l-subdev17					0660  system 	camera
+/dev/v4l-subdev18					0660  system 	camera
+/dev/v4l-subdev19					0660  system 	camera
+/dev/v4l-subdev20					0660  system 	camera
+/dev/hisi-ivp					    0660  system    camera
+/dev/ivp-ipc					    0660  system    camera
+/dev/hicam_buf					    0660  system    camera
 
-subsystem msm_camera
-    devname uevent_devpath
-    dirname /dev/msm_camera
+/dev/memory_latency     			0660  system    system
 
-subsystem input
-    devname uevent_devpath
-    dirname /dev/input
+/sys/class/leds/torch/brightness			0664  system    system
+/sys/class/leds/torch/flash_thermal_protect		0664  system    system
+# /sys/class/camerafs/node/dual_leds			0664  system    system
+/dev/hifi_misc                                          0770  root      audio
+/dev/hi6xxx_fpga_misc                                   0660  root      audio
 
-subsystem mtd
-    devname uevent_devpath
-    dirname /dev/mtd
+/dev/dsm                            0660  system    dsm
 
-subsystem sound
-    devname uevent_devpath
-    dirname /dev/snd
+/dev/block/mmcblk0				0660	system	system
+/dev/block/mmcblk0p1    0600    system    system
+/dev/block/sdc1                                 0660    system  system
 
-# ueventd can only set permissions on device nodes and their associated
-# sysfs attributes, not on arbitrary paths.
-#
-# format for /dev rules: devname mode uid gid
-# format for /sys rules: nodename attr mode uid gid
-# shortcut: "mtd@NN" expands to "/dev/mtd/mtdNN"
-
-/dev/null                 0666   root       root
-/dev/zero                 0666   root       root
-/dev/full                 0666   root       root
-/dev/ptmx                 0666   root       root
-/dev/tty                  0666   root       root
-/dev/random               0666   root       root
-/dev/urandom              0666   root       root
-# Make HW RNG readable by group system to let EntropyMixer read it.
-/dev/hw_random            0440   root       system
-/dev/ashmem               0666   root       root
-/dev/binder               0666   root       root
-/dev/hwbinder             0666   root       root
-/dev/vndbinder            0666   root       root
-/dev/act                  0660   radio      radio
-/dev/actr                 0660   act_rcs    act_rcs
-
-# Anyone can read the logs, but if they're not in the "logs"
-# group, then they'll only see log entries for their UID.
-/dev/hwlog_exception      0662   root       log
-/dev/hwlog_jank           0662   root       system
-/dev/hwlog_dubai          0662   root       system
-/dev/dubai                0660   root       root
-/dev/pmsg0                0222   root       log
-
-# the msm hw3d client device node is world writable/readable.
-/dev/msm_hw3dc            0666   root       root
-
-# For aod device
-/dev/aod                  0664   system     system
-
-# gpu driver for adreno200 is globally accessible
-/dev/kgsl                 0666   root       root
-
-# kms driver for drm based gpu
-/dev/dri/*                0666   root       graphics
-
-# these should not be world writable
-/dev/diag                 0660   radio      radio
-/dev/diag_arm9            0660   radio      radio
-/dev/ttyMSM0              0600   bluetooth  bluetooth
-/dev/uhid                 0660   uhid       uhid
-/dev/uinput               0660   system     bluetooth
-/dev/alarm                0664   system     radio
-/dev/rtc0                 0640   system     system
-/dev/tty0                 0660   root       system
-/dev/graphics/*           0660   root       graphics
-/dev/msm_hw3dm            0660   system     graphics
-/dev/input/*              0660   root       input
-/dev/v4l-touch*           0660   root       input
-/dev/eac                  0660   root       audio
-/dev/cam                  0660   root       camera
-/dev/pmem                 0660   system     graphics
-/dev/pmem_adsp*           0660   system     audio
-/dev/pmem_camera*         0660   system     camera
-/dev/oncrpc/*             0660   root       system
-/dev/adsp/*               0660   system     audio
-/dev/snd/*                0660   system     audio
-/dev/mt9t013              0660   system     system
-/dev/msm_camera/*         0660   system     system
-/dev/akm8976_daemon       0640   compass    system
-/dev/akm8976_aot          0640   compass    system
-/dev/akm8973_daemon       0640   compass    system
-/dev/akm8973_aot          0640   compass    system
-/dev/bma150               0640   compass    system
-/dev/cm3602               0640   compass    system
-/dev/akm8976_pffd         0640   compass    system
-/dev/lightsensor          0640   system     system
-/dev/msm_pcm_out*         0660   system     audio
-/dev/msm_pcm_in*          0660   system     audio
-/dev/msm_pcm_ctl*         0660   system     audio
-/dev/msm_snd*             0660   system     audio
-/dev/msm_mp3*             0660   system     audio
-/dev/audience_a1026*      0660   system     audio
-/dev/tpa2018d1*           0660   system     audio
-/dev/msm_audpre           0660   system     audio
-/dev/msm_audio_ctl        0660   system     audio
-/dev/htc-acoustic         0660   system     audio
-/dev/vdec                 0660   system     audio
-/dev/q6venc               0660   system     audio
-/dev/snd/dsp              0660   system     audio
-/dev/snd/dsp1             0660   system     audio
-/dev/snd/mixer            0660   system     audio
-/dev/smd0                 0640   radio      radio
-/dev/qmi                  0640   radio      radio
-/dev/qmi0                 0640   radio      radio
-/dev/qmi1                 0640   radio      radio
-/dev/qmi2                 0640   radio      radio
-/dev/bus/usb/*            0660   root       usb
-/dev/mtp_usb              0660   root       mtp
-/dev/usb_accessory        0660   root       usb
-/dev/tun                  0660   system     vpn
-/dev/android_hdb          0660   hdb        hdb
-/dev/android_hdb_enable   0660   hdb        hdb
-
-# CDMA radio interface MUX
-/dev/ts0710mux*           0640   radio      radio
-/dev/ppp                  0660   radio      vpn
-
-# sysfs properties
-/sys/devices/platform/trusty.*      trusty_version        0440  root   log
-/sys/devices/virtual/input/input*   enable      0660  root   input
-/sys/devices/virtual/input/input*   poll_delay  0660  root   input
-/sys/devices/virtual/usb_composite/*   enable      0664  root   system
-/sys/devices/system/cpu/cpu*   cpufreq/scaling_max_freq   0664  system system
-/sys/devices/system/cpu/cpu*   cpufreq/scaling_min_freq   0664  system system
-
-# DVB API device nodes
-/dev/dvb*                 0660   root       system
-
-# huawei vr deivces
-/dev/hwvr0                0664   root       system
-/dev/hwvr1                0664   root       system
-/dev/hwvrdfu              0660   root       system
-
-#AR0009KRR9 wangning/00384503 20171113 begin
-/dev/acm                  0664   root       system
-#AR0009KRR9 wangning/00384503 20171113 end
+/dev/pn544  					0660 	nfc 	nfc
+/dev/cxd224x-i2c 				0660 	nfc 	nfc
