@@ -2,7 +2,6 @@
 #<src>                                                  <mnt_point>         <type>    <mnt_flags and options>                       <fs_mgr_flags>
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 /dev/block/bootdevice/by-name/system    /system    ext4    ro,barrier=1    wait,avb
-/dev/block/bootdevice/by-name/system-b    /system-b    ext4    ro,barrier=1    wait,avb
 /dev/block/bootdevice/by-name/vendor    /vendor    ext4    ro,barrier=1    wait,avb
 /dev/block/bootdevice/by-name/product    /product    ext4    ro,barrier=1    wait
 /dev/block/bootdevice/by-name/version   /version   ext4    ro,barrier=1    wait
