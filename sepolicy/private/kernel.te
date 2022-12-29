@@ -1,8 +1,0 @@
-allow kernel device:dir { write };
-allow kernel block_device:dir { search };
-allow kernel device:chr_file { open create read write };
-allow kernel recovery:fd { use };
-
-allow kernel block_device:blk_file { open read };
-allow kernel tmpfs:dir { search };
-

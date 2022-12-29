@@ -44,12 +44,27 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres
 
 
+BOARD_SEPOLICY_DIRS += \
+    device/huawei/potter/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    tee.te \
+    kernel.te \
+    recovery.te \
+    logd.te \
+    vendor_init.te \
+    device.te \
+    file_contexts \
+    init.te \
+    recovery.te \
+    
+
 # Fstab and init.rc files
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 
 # Recovery
-TW_THEME := portrait_hdpi
+TW_THEME := shrp_dark_portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -91,7 +106,10 @@ SHRP_REC := /dev/block/platform/hi_mci.0/by-name/recovery_ramdisk
 # Set this variable when true ONLY (do not use "false" or similiar)
 SHRP_EXPRESS := true
 SHRP_EXPRESS_USE_DATA := true
+
 SHRP_NOTCH := false
+# Dark Mode
+SHRP_DARK := true
 
 SHRP_EXTERNAL := /external_sd
 SHRP_INTERNAL := /sdcard
@@ -116,56 +134,5 @@ SHRP_DEVICE_TYPE := A-Only
 # SHRP_AB := true
 
 
-
 # SHRP addons
-SHRP_SKIP_DEFAULT_ADDON_1 := true
-SHRP_SKIP_DEFAULT_ADDON_2 := true
-SHRP_SKIP_DEFAULT_ADDON_3 := true
-SHRP_SKIP_DEFAULT_ADDON_4 := true
 SHRP_EXCLUDE_MAGISK_FLASH := true
-
-
-SHRP_EXTERNAL_ADDON_PATH := "device/huawei/potter/addon/"
-SHRP_EXTERNAL_ADDON_1_NAME := "Active Default Data - Decrypt Data"
-SHRP_EXTERNAL_ADDON_1_INFO := "Active Default Data profile and Decrypt Data"
-SHRP_EXTERNAL_ADDON_1_FILENAME := "Active-Default-Data-Profile-v2.zip"
-SHRP_EXTERNAL_ADDON_1_BTN_TEXT := "Flash"
-SHRP_EXTERNAL_ADDON_1_SUCCESSFUL_TEXT := "Flashed Successfully"
-SHRP_INC_IN_REC_EXTERNAL_ADDON_1 := true
-
-SHRP_EXTERNAL_ADDON_2_NAME := "Active New Data Profile"
-SHRP_EXTERNAL_ADDON_2_INFO := "Active New Data Profile that located /data/profile2-  to return to Default Data Profile (/data)  press first option Decrypt Data  "
-SHRP_EXTERNAL_ADDON_2_FILENAME := "Active-New-Data-Profile-v2.zip"
-SHRP_EXTERNAL_ADDON_2_BTN_TEXT := "Flash"
-SHRP_EXTERNAL_ADDON_2_SUCCESSFUL_TEXT := "Flashed Successfully"
-SHRP_INC_IN_REC_EXTERNAL_ADDON_2 := true
-
-SHRP_EXTERNAL_ADDON_3_NAME := "Active Default System partition"
-SHRP_EXTERNAL_ADDON_3_INFO := "Use it if you have create a dual System partition -otherwise your device will be briked"
-SHRP_EXTERNAL_ADDON_3_FILENAME := "Active-Default-System-partition-arm64-v2.zip"
-SHRP_EXTERNAL_ADDON_3_BTN_TEXT := "Flash"
-SHRP_EXTERNAL_ADDON_3_SUCCESSFUL_TEXT := "Flashed Successfully"
-SHRP_INC_IN_REC_EXTERNAL_ADDON_3 := true
-
-SHRP_EXTERNAL_ADDON_4_NAME := "Active New System partition"
-SHRP_EXTERNAL_ADDON_4_INFO := "Use it if you have create a dual System partition -otherwise your device will be briked"
-SHRP_EXTERNAL_ADDON_4_FILENAME := "Active-New-System-partition-arm64-v2.zip"
-SHRP_EXTERNAL_ADDON_4_BTN_TEXT := "Flash"
-SHRP_EXTERNAL_ADDON_4_SUCCESSFUL_TEXT := "Flashed Successfully"
-SHRP_INC_IN_REC_EXTERNAL_ADDON_4 := true
-
-
-
-SHRP_EXTERNAL_ADDON_5_NAME := "Kernel 4.9.319 Permissive"
-SHRP_EXTERNAL_ADDON_5_INFO := "Flash Kernel 4.9.319 Permissive"
-SHRP_EXTERNAL_ADDON_5_FILENAME := "Kernel-4.9.319-permissive.zip"
-SHRP_EXTERNAL_ADDON_5_BTN_TEXT := "Flash"
-SHRP_EXTERNAL_ADDON_5_SUCCESSFUL_TEXT := "Flashed Successfully"
-
-
-SHRP_EXTERNAL_ADDON_6_NAME := "Magisk delta 25.2"
-SHRP_EXTERNAL_ADDON_6_INFO := "Flash Magisk delta 25.2 over recovery_ramdisk"
-SHRP_EXTERNAL_ADDON_6_FILENAME := "Magisk-delta-25200.zip"
-SHRP_EXTERNAL_ADDON_6_BTN_TEXT := "Flash"
-SHRP_EXTERNAL_ADDON_6_SUCCESSFUL_TEXT := "Flashed Successfully"
-

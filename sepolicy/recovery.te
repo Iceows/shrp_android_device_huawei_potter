@@ -1,5 +1,4 @@
-
-allow recovery media_rw_data_file:dir { search open read getattr add_name write };
+allow recovery media_rw_data_file:dir { rw_dir_perms add_name create setattr };
 allow recovery media_rw_data_file:file { read open write setattr getattr create };
 
 allow recovery mtp_device:chr_file { read write getattr lock append open };
@@ -7,25 +6,32 @@ allow recovery mtp_device:chr_file { read write getattr lock append open };
 allow recovery rootfs:file { read open write setattr getattr create };
 allow recovery rootfs:lnk_file { unlink create };
 allow recovery rootfs:dir { add_name write getattr create remove_name rmdir  };
-allow recovery rootfs:fifo_file { read open create };
+allow recovery rootfs:fifo_file { read open create unlink };
+
+allow recovery recovery_data_file:dir { rw_dir_perms add_name create setattr };
+allow recovery recovery_data_file:file { read open write setattr getattr create };
+
+allow recovery app_data_file:dir { rw_dir_perms add_name create setattr };
+allow recovery nfc_data_file:dir { rw_dir_perms add_name create setattr };
+allow recovery apk_private_data_file:dir { rw_dir_perms add_name create setattr };
+
+allow recovery app_data_file:file { getattr };
 
 allow recovery sysfs:file { read open write setattr getattr create };
-allow recovery sysfs:dir { open read };
+allow recovery sysfs:dir { rw_dir_perms add_name create setattr };
 
 allow recovery selinuxfs:file { read open write setattr getattr create };
 
-allow recovery adb_data_file:dir { add_name read open write getattr };
-allow recovery adb_data_file:file { getattr };
+allow recovery adb_data_file:dir { rw_dir_perms add_name create setattr };
+allow recovery adb_data_file:file { rw_file_perms };
 allow recovery adb_data_file:lnk_file { getattr };
 
 allow recovery self:process { execmem };
 allow recovery ashmem_device:chr_file { execute };
 
 allow recovery unlabeled:sock_file { getattr };
-allow recovery vendor_data_file:file { getattr };
+allow recovery vendor_data_file:file { rw_file_perms };
 allow recovery fingerprint_vendor_data_file:dir { read open getattr };
-allow recovery app_data_file:file { getattr };
-allow recovery app_data_file:dir { search read open getattr };
 
 allow recovery ota_package_file:dir { read getattr };
 allow recovery vndservice_contexts_file:file { getattr };
@@ -39,11 +45,15 @@ allow recovery sepolicy_file:file { getattr };
 allow recovery vfat:dir { open read };
 allow recovery vfat:file { getattr };
 
+allow recovery proc_filesystems:file { getattr read open };
+
 allow recovery default_prop:property_service { set };
 get_prop(recovery, bluetooth_prop)
 get_prop(recovery, boottime_prop)
 get_prop(recovery, ctl_bootanim_prop)
 get_prop(recovery, ctl_bugreport_prop)
+get_prop(recovery, ctl_console_prop)
+get_prop(recovery, ctl_dumpstate_prop)
 
 allow recovery cache_file:dir { mounton };
 allow recovery system_data_file:dir { open read };
@@ -55,5 +65,8 @@ allow recovery kernel:system { module_request };
 allow recovery self:netlink_kobject_uevent_socket { read create };
 
 allow recovery init_exec:file { getattr };
+
+allow recovery tmpfs:fifo_file { read open create unlink };
+
 
 

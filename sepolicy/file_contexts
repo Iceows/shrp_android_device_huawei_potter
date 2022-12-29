@@ -1,0 +1,6 @@
+##########################
+# Devices
+#
+/dev/ttyHwGS0		u:object_r:recovery_device:s0
+/dev/ttyHwGS1		u:object_r:recovery_device:s0
+/dev/ttyHwGS2		u:object_r:recovery_device:s0
