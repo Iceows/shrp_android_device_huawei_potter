@@ -48,16 +48,15 @@ BOARD_SEPOLICY_DIRS += \
     device/huawei/potter/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    tee.te \
-    kernel.te \
-    recovery.te \
-    logd.te \
-    vendor_init.te \
     device.te \
     file_contexts \
     init.te \
+    kernel.te \
+    logd.te \
+    tee.te \
     recovery.te \
-    
+    vendor_init.te \
+
 
 # Fstab and init.rc files
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/twrp.flags

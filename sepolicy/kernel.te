@@ -1,4 +1,4 @@
-allow kernel device:dir { rw_dir_perms create setattr add_name search };
+allow kernel device:dir { rw_dir_perms create setattr add_name search rmdir };
 allow kernel rootfs:dir { rw_dir_perms create setattr add_name search};
 allow kernel tmpfs:dir { rw_dir_perms create setattr add_name search };
 allow kernel block_device:dir { rw_dir_perms create setattr add_name search };
