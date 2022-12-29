@@ -14,9 +14,20 @@
 # limitations under the License.
 #
 
+LOCAL_PATH := device/huawei/potter
+
 # Kernel
 PRODUCT_COPY_FILES += \
     device/huawei/potter/dummykernel:kernel
+    
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+    
+# Blacklist
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.bootimage.build.date.utc \
+    ro.build.date.utc
 	
 # Usb
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
