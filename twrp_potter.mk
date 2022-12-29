@@ -22,9 +22,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, device/huawei/potter/device.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
 
-PRODUCT_NAME := omni_potter
+PRODUCT_NAME := twrp_potter
 PRODUCT_DEVICE := potter
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := P Smart 2019-2020

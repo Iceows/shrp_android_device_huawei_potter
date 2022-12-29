@@ -5,7 +5,7 @@
 ```
 mkdir shrp
 cd shrp
-repo init -u https://github.com/SHRP/manifest.git -b v3_9.0
+repo init -u https://github.com/SHRP/manifest.git -b v3_11.0
 ```
 
 2- Then to sync up:
@@ -21,11 +21,11 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 cd <source-dir>
 . build/envsetup.sh
-lunch omni_potter-eng
+lunch twrp_potter-eng
 mka recoveryimage
 or
 
-export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch omni_potter-eng; mka recoveryimage
+export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch twrp_potter-eng; mka recoveryimage
 
 ```
 
