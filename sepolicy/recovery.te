@@ -68,5 +68,16 @@ allow recovery init_exec:file { getattr };
 
 allow recovery tmpfs:fifo_file { read open create unlink };
 
+allow recovery block_device:blk_file { ioctl };
+allow recovery self:netlink_kobject_uevent_socket { bind };
+allow recovery system_data_file:file { open write };
+
+allow recovery self:capability { fsetid };
+
+allow recovery configfs:file { getattr };
+allow recovery ashmem_libcutils_device:chr_file { execute };
+allow recovery linkerconfig_file:dir { getattr };
+
+
 
 
