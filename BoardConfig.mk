@@ -60,7 +60,7 @@ BOARD_SEPOLICY_UNION += \
     
 
 # Fstab and init.rc files
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/twrp.flags
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 
 # Recovery
