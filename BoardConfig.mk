@@ -108,10 +108,17 @@ SHRP_FLASH := 1
 SHRP_FLASH_MAX_BRIGHTNESS := 1
 SHRP_CUSTOM_FLASHLIGHT := true
 SHRP_FONP_1 := /sys/class/leds/torch/brightness
-SHRP_REC_TYPE := normal
 SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
-SHRP_DEVICE_TYPE := A/B
 SHRP_DARK := true
+
+# Recovery Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_REC_TYPE := Treble
+
+# Device Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_DEVICE_TYPE := A/B
+
 
 # Avb
 BOARD_AVB_ENABLE := true
