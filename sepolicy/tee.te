@@ -1,5 +1,5 @@
 allow tee self:process { execmem };
 allow tee rootfs:file { read open write setattr getattr create execute entrypoint };
-allow tee device:chr_file { read write };
+allow tee device:chr_file { open read write ioctl };
 allow tee rootfs:dir { read };
 

@@ -3,12 +3,12 @@ import /init.recovery.kirin710.usb.rc
 on fs
     start fixlinks
 
-service fixlinks /sbin/fixlinks.sh
+service fixlinks /system/bin/fixlinks.sh
     oneshot
     disabled
     seclabel u:r:recovery:s0
 
-service oeminfo_nvm /sbin/true
+service oeminfo_nvm /system/sbin/true
     disabled
 
 on fs && property:sys.usb.configfs=0
@@ -18,8 +18,8 @@ on fs && property:sys.usb.configfs=0
 #   mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
 
     write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 18D1
-    write /sys/class/android_usb/android0/idProduct D001
+    write /sys/class/android_usb/android0/idVendor 12d1
+    write /sys/class/android_usb/android0/idProduct 107e
 #   write /sys/class/android_usb/android0/f_ffs/aliases adb
     write /sys/class/android_usb/android0/functions adb
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}

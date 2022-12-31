@@ -68,7 +68,11 @@ allow recovery init_exec:file { getattr };
 
 allow recovery tmpfs:fifo_file { read open create unlink };
 
-allow recovery block_device:blk_file { ioctl };
+allow recovery block_device:blk_file { open read write ioctl };
+allow recovery block_device:dir { rw_dir_perms add_name create setattr };
+allow recovery block_device:file { unlink setattr };
+allow recovery block_device:lnk_file { create rename };
+
 allow recovery self:netlink_kobject_uevent_socket { bind };
 allow recovery system_data_file:file { open write };
 
