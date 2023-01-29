@@ -93,32 +93,15 @@ TARGET_USES_MKE2FS := true
 TW_INCLUDE_RESETPROP := true
 TWRP_INCLUDE_LOGCAT := true
 TW_USE_NEW_MINADBD := true
+TW_INTERNAL_STORAGE_PATH := "/data/media/0"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+RECOVERY_SDCARD_ON_DATA := true
 
-#SHRP-specific lines
-SHRP_PATH := device/huawei/potter
-SHRP_MAINTAINER := Iceows
-SHRP_DEVICE_CODE := potter
-#SHRP_OFFICIAL := true
-#SHRP_EDL_MODE := 1
-SHRP_EXPRESS := true
-SHRP_INTERNAL := /sdcard
-SHRP_EXTERNAL := /external_sd
-SHRP_OTG := /usb_otg
-SHRP_FLASH := 1
-SHRP_FLASH_MAX_BRIGHTNESS := 1
-SHRP_CUSTOM_FLASHLIGHT := true
-SHRP_FONP_1 := /sys/class/leds/torch/brightness
-SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
-SHRP_DARK := true
-
-# Recovery Type (for "About" section only)
-# Default (if not set): N/A
-SHRP_REC_TYPE := Treble
-
-# Device Type (for "About" section only)
-# Default (if not set): N/A
-SHRP_DEVICE_TYPE := A/B
-
+# LZMA Compression
+LZMA_COMPRESSION := -9
+LZMA_RAMDISK_TARGETS := recovery
 
 # Avb
 BOARD_AVB_ENABLE := true
@@ -149,9 +132,7 @@ BOARD_SEPOLICY_UNION += \
     logd.te \
     recovery.te \
     tee.te \
-    vendor_init.te \
-
-
+    vendor_init.te
 
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
@@ -163,3 +144,36 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+    
+# ---------------------------------------------    
+# SHRP-specific lines
+# --------------------------------------------- 
+
+SHRP_PATH := device/huawei/potter
+SHRP_MAINTAINER := Iceows
+SHRP_DEVICE_CODE := potter
+
+# Recovery Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_REC_TYPE := Treble
+
+# Device Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_DEVICE_TYPE := A/B
+
+#SHRP_OFFICIAL := true
+#SHRP_EDL_MODE := 1
+SHRP_EXPRESS := true
+SHRP_EXPRESS_USE_DATA := true
+
+SHRP_INTERNAL := /sdcard
+SHRP_EXTERNAL := /external_sd
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+SHRP_FLASH_MAX_BRIGHTNESS := 1
+SHRP_CUSTOM_FLASHLIGHT := true
+SHRP_FONP_1 := /sys/class/leds/torch/brightness
+SHRP_REC_TYPE := normal
+SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
+SHRP_DARK := true
+

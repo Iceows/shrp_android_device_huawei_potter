@@ -15,5 +15,6 @@
 #
 
 export ALLOW_MISSING_DEPENDENCIES=true
-
-add_lunch_combo twrp_potter-eng
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+ccache -M 15G
