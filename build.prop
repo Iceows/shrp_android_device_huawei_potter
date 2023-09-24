@@ -1,0 +1,8 @@
+ro.build.product=potter
+ro.product.board=kirin710
+ro.product.brand=HUAWEI
+ro.product.manufacturer=HUAWEI
+ro.product.name=kirin710
+ro.product.device=kirin710
+ro.product.model=P Smart 2019
+ro.product.cpu.abi=arm64-v8a

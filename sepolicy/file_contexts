@@ -1,6 +1,13 @@
 ##########################
 # Devices
 #
+#/vendor/bin/aptouch_daemon   u:object_r:aptouch_exec:s0
 /dev/ttyHwGS0		u:object_r:recovery_device:s0
 /dev/ttyHwGS1		u:object_r:recovery_device:s0
 /dev/ttyHwGS2		u:object_r:recovery_device:s0
+
+# TEE
+/vendor/bin/teecd             u:object_r:tee_exec:s0
+
+# aptouch
+/vendor/bin/aptouch_daemon	  u:object_r:aptouch_exec:s0

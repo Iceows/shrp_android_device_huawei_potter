@@ -40,3 +40,5 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.allow.mock.location=0 \
     service.adb.root=1 \
     ro.debuggable=1
+
+

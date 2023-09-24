@@ -1,0 +1,48 @@
+# mount point    fstype    device                device2               flags
+# System parts - for some reason you can specify ext4 for erofs ? (could be some huawei/kirin shit)
+/cache			ext4	/dev/block/platform/hi_mci.0/by-name/cache		flags=backup=1
+/cust			erofs	/dev/block/platform/hi_mci.0/by-name/cust		flags=backup=1
+/data			f2fs	/dev/block/platform/hi_mci.0/by-name/userdata		flags=backup=1;encryptable=footer
+/odm			erofs	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1
+/product		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Product Image";flashimg
+/system                erofs	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1
+/system_image		emmc	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;display="System Image";flashimg
+/vendor		erofs	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1
+/vendor_image		emmc	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1;display="Vendor Image";flashimg
+/version		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Version Image";flashimg
+/kernel		emmc	/dev/block/platform/hi_mci.0/by-name/kernel		flags=backup=1;flashimg
+/ramdisk		emmc	/dev/block/platform/hi_mci.0/by-name/ramdisk		flags=backup=1;flashimg
+/preas                 erofs   /dev/block/platform/hi_mci.0/by-name/preavs           flags=backup=1;display="Preas";wipeingui;fsflags=ro
+/preavs                erofs   /dev/block/platform/hi_mci.0/by-name/preavs           flags=backup=1;display="Preavs";wipeingui;fsflags=ro
+/preload_image		emmc	/dev/block/platform/hi_mci.0/by-name/preload		flags=backup=1;display="Preload Image";flashimg
+
+
+# Protected partitions
+/oeminfo		emmc    /dev/block/platform/hi_mci.0/by-name/oeminfo		flags=backup=1;display="OEM Info";flashimg
+/splash2		ext4	/dev/block/platform/hi_mci.0/by-name/splash2		flags=backup=1
+/vbmeta		emmc	/dev/block/platform/hi_mci.0/by-name/vbmeta		flags=backup=1;display="VBMeta";flashimg
+
+# FRP
+/frp			emmc	/dev/block/platform/hi_mci.0/by-name/frp		flags=backup=1;display="FRP";flashimg
+
+# Modem partition
+/modemnvm_cust		emmc	/dev/block/platform/hi_mci.0/by-name/modemnvm_cust	flags=backup=1;flashimg
+/modemnvm_update	emmc	/dev/block/platform/hi_mci.0/by-name/modemnvm_update	flags=backup=1;flashimg
+/modem_fw		emmc	/dev/block/platform/hi_mci.0/by-name/modem_fw	flags=backup=1;display="Modem Firmware";flashimg
+/nvme	        	emmc	/dev/block/platform/hi_mci.0/by-name/nvme	flags=backup=1;display="NVME";flashimg
+
+# Recovery partitions
+/recovery_ramdisk	emmc	/dev/block/bootdevice/by-name/recovery_ramdisk  	flags=display="Recovery Ramdisk";backup=1;flashimg
+/recovery_vbmeta	emmc	/dev/block/bootdevice/by-name/recovery_vbmeta		flags=display="Recovery Vbmeta ";backup=1;flashimg
+/recovery_vendor	emmc	/dev/block/bootdevice/by-name/recovery_vendor		flags=display="Recovery Vendor";backup=1;flashimg
+
+# ERecovery partitions
+/erecovery_ramdisk	emmc	/dev/block/bootdevice/by-name/erecovery_ramdisk		flags=display="eRecovery Ramdisk";backup=1;flashimg
+/erecovery_kernel	emmc	/dev/block/bootdevice/by-name/erecovery_kernel		flags=display="eRecovery Kernel";backup=1;flashimg
+/erecovery_vbmeta	emmc	/dev/block/bootdevice/by-name/erecovery_vbmeta		flags=display="eRecovery Vbmeta";backup=1;flashimg
+/erecovery_vendor	emmc	/dev/block/bootdevice/by-name/erecovery_vendor		flags=display="eRecovery Vendor";backup=1;flashimg
+
+# External storage
+/external_sd		auto	/dev/block/mmcblk1p1  /dev/block/mmcblk1		flags=display="Micro SDcard";storage;wipeingui;removable
+
+

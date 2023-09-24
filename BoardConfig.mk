@@ -125,6 +125,7 @@ BOARD_SEPOLICY_DIRS += \
     device/huawei/potter/sepolicy
 
 BOARD_SEPOLICY_UNION += \
+    aptouch.te \
     device.te \
     file_contexts \
     init.te \
@@ -144,7 +145,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
-    
+
 # ---------------------------------------------    
 # SHRP-specific lines
 # --------------------------------------------- 

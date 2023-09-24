@@ -54,7 +54,7 @@ subsystem sound
 /dev/hwbinder             0666   root       root
 /dev/vndbinder            0666   root       root
 /dev/act                  0660   radio      radio
-/dev/actr                 0660   act_rcs    act_rcs
+/dev/actr                 0660   root       root
 
 # Anyone can read the logs, but if they're not in the "logs"
 # group, then they'll only see log entries for their UID.
@@ -131,8 +131,8 @@ subsystem sound
 /dev/mtp_usb              0660   root       mtp
 /dev/usb_accessory        0660   root       usb
 /dev/tun                  0660   system     vpn
-/dev/android_hdb          0660   hdb        hdb
-/dev/android_hdb_enable   0660   hdb        hdb
+/dev/android_hdb          0660   system     system
+/dev/android_hdb_enable   0660   system     system
 
 # CDMA radio interface MUX
 /dev/ts0710mux*           0640   radio      radio
