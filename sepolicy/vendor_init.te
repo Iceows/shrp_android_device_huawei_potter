@@ -7,3 +7,7 @@ allow vendor_init proc:file { rw_file_perms };
 
 allow vendor_init kernel:system { module_request };
 
+# Allow relabel file (selinux)
+allow vendor_init rootfs:file { relabelfrom relabelto };
+allow vendor_init hwservicemanager_exec:file { relabelfrom relabelto };
+

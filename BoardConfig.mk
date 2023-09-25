@@ -124,17 +124,6 @@ SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_SEPOLICY_DIRS += \
     device/huawei/potter/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    aptouch.te \
-    device.te \
-    file_contexts \
-    init.te \
-    kernel.te \
-    logd.te \
-    recovery.te \
-    tee.te \
-    vendor_init.te
-
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
     libcap \
