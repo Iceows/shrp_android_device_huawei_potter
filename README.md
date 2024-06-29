@@ -15,7 +15,10 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 
 3- Put this folder on 
->/shrp/device/huawei/potter
+>git clone https://github.com/iceows/shrp_android_device_huawei_potter shrp/device/huawei/potter -b lineage-20.0
+>git clone https://github.com/omnirom/android_vendor_omni vendor/omni -b android-9.0
+
+
 
 4- Then to build for a device with recovery partition:
 ```
