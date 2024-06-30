@@ -1,0 +1,48 @@
+From 6a7928a2e873fd999d0b21e451765e1740a36914 Mon Sep 17 00:00:00 2001
+From: Raphael Mounier <mounierr07@gmail.com>
+Date: Sun, 30 Jun 2024 17:51:56 +0200
+Subject: [PATCH] f2fs-tools: remove CP_NAT_BITS_FLAG
+
+Huawei EMUI9 don't supported nat bits flags
+
+Change-Id: I86bed9c015bfb68512452ff3c04326892e38c52c
+---
+ mkfs/f2fs_format.c      | 8 +++++---
+ mkfs/f2fs_format_main.c | 2 +-
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/mkfs/f2fs_format.c b/mkfs/f2fs_format.c
+index 44575e0..5c2fa2d 100644
+--- a/mkfs/f2fs_format.c
++++ b/mkfs/f2fs_format.c
+@@ -690,9 +690,11 @@ static int f2fs_write_check_point_pack(void)
+ 	/* cp page (2), data summaries (1), node summaries (3) */
+ 	set_cp(cp_pack_total_block_count, 6 + get_sb(cp_payload));
+ 	flags = CP_UMOUNT_FLAG | CP_COMPACT_SUM_FLAG;
+-	if (get_cp(cp_pack_total_block_count) <=
+-			(1 << get_sb(log_blocks_per_seg)) - nat_bits_blocks)
+-		flags |= CP_NAT_BITS_FLAG;
++	
++	// Iceows patch - remove CP_NAT_BITS_FLAG - Huawei EMUI9 don't support it 
++	//if (get_cp(cp_pack_total_block_count) <=
++	//		(1 << get_sb(log_blocks_per_seg)) - nat_bits_blocks)
++	//	flags |= CP_NAT_BITS_FLAG;
+ 
+ 	if (c.trimmed)
+ 		flags |= CP_TRIMMED_FLAG;
+diff --git a/mkfs/f2fs_format_main.c b/mkfs/f2fs_format_main.c
+index 204a410..073eb00 100644
+--- a/mkfs/f2fs_format_main.c
++++ b/mkfs/f2fs_format_main.c
+@@ -70,7 +70,7 @@ static void mkfs_usage()
+ 
+ static void f2fs_show_info()
+ {
+-	MSG(0, "\n\tF2FS-tools: mkfs.f2fs Ver: %s (%s)\n\n",
++	MSG(0, "\n\tF2FS-tools: mkfs.f2fs Ver Iceows (Huawei EMUI9): %s (%s)\n\n",
+ 				F2FS_TOOLS_VERSION,
+ 				F2FS_TOOLS_DATE);
+ 	if (c.heap == 0)
+-- 
+2.25.1
+
