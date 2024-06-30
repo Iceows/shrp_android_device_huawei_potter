@@ -14,8 +14,13 @@ repo init -u https://github.com/SHRP/manifest.git -b v3_11.0
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 
-3- Put this folder on 
->/shrp/device/huawei/potter
+3- Put this folder on
+
+...
+git clone https://github.com/iceows/shrp_android_device_huawei_potter shrp/device/huawei/potter -b lineage-20.0
+git clone https://github.com/iceows/android_vendor_omni vendor/omni -b android-11.0
+...
+
 
 4- Then to build for a device with recovery partition:
 ```
