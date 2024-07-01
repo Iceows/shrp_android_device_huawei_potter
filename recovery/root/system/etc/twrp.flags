@@ -1,13 +1,15 @@
 # mount point    fstype    device                device2               flags
 # System partitions - for erofs partition you can also specify ext4 fstype (Huawei strange !!)
 /cache			ext4	/dev/block/platform/hi_mci.0/by-name/cache		flags=backup=1
-/cust			erofs	/dev/block/platform/hi_mci.0/by-name/cust		flags=backup=1
+/cust			erofs	/dev/block/platform/hi_mci.0/by-name/cust		flags=backup=1;display="Cust";fsflags=ro
 /data			f2fs	/dev/block/platform/hi_mci.0/by-name/userdata		flags=backup=1;encryptable=footer
-/odm			erofs	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1
-/product		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Product Image";flashimg
-/system                erofs	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1
+/odm			erofs	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1;display="Odm"
+/odm_image		emmc	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1;display="Odm Image";flashimg
+/product               erofs	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;fsflags=ro
+/product_image		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Product Image";flashimg
+/system                erofs	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;fsflags=ro
 /system_image		emmc	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;display="System Image";flashimg
-/vendor		erofs	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1
+/vendor		erofs	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1;fsflags=ro
 /vendor_image		emmc	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1;display="Vendor Image";flashimg
 /version		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Version Image";flashimg
 /kernel		emmc	/dev/block/platform/hi_mci.0/by-name/kernel		flags=backup=1;flashimg
@@ -23,7 +25,7 @@
 /vbmeta		emmc	/dev/block/platform/hi_mci.0/by-name/vbmeta		flags=backup=1;display="VBMeta";flashimg
 
 # FRP
-/frp			emmc	/dev/block/platform/hi_mci.0/by-name/frp		flags=backup=1;display="FRP";flashimg
+/frp			emmc	/dev/block/platform/hi_mci.0/by-name/frp		flags=backup=1;display="FRP";wipeingui;flashimg
 
 # Modem partition
 /modemnvm_cust		emmc	/dev/block/platform/hi_mci.0/by-name/modemnvm_cust	flags=backup=1;flashimg
