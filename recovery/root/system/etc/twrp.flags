@@ -1,37 +1,37 @@
 # mount point    fstype    device                device2               flags
 # System partitions - for erofs partition you can also specify ext4 fstype (Huawei strange !!)
-/cache			ext4	/dev/block/platform/hi_mci.0/by-name/cache		flags=backup=1
-/cust			erofs	/dev/block/platform/hi_mci.0/by-name/cust		flags=backup=1;display="Cust";fsflags=ro
-/data			f2fs	/dev/block/platform/hi_mci.0/by-name/userdata		flags=backup=1;encryptable=footer
-/odm			erofs	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1;display="Odm"
-/odm_image		emmc	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1;display="Odm Image";flashimg
-/product               erofs	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;fsflags=ro
-/product_image		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Product Image";flashimg
-/system                erofs	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;fsflags=ro
-/system_image		emmc	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;display="System Image";flashimg
-/vendor		erofs	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1;fsflags=ro
-/vendor_image		emmc	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1;display="Vendor Image";flashimg
-/version		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Version Image";flashimg
-/kernel		emmc	/dev/block/platform/hi_mci.0/by-name/kernel		flags=backup=1;flashimg
-/ramdisk		emmc	/dev/block/platform/hi_mci.0/by-name/ramdisk		flags=backup=1;flashimg
-/preas                 erofs   /dev/block/platform/hi_mci.0/by-name/preavs           flags=backup=1;display="Preas";wipeingui;fsflags=ro
-/preavs                erofs   /dev/block/platform/hi_mci.0/by-name/preavs           flags=backup=1;display="Preavs";wipeingui;fsflags=ro
-/preload_image		emmc	/dev/block/platform/hi_mci.0/by-name/preload		flags=backup=1;display="Preload Image";flashimg
+/cache			ext4	/dev/block/bootdevice/by-name/cache	     	flags=backup=1
+/cust			erofs	/dev/block/bootdevice/by-name/cust	        flags=backup=1;display="Cust";fsflags=ro
+/data			f2fs	/dev/block/bootdevice/by-name/userdata	flags=backup=1;encryptable=footer
+/odm			erofs	/dev/block/bootdevice/by-name/odm	  	flags=backup=1;display="Odm"
+/odm_image		emmc	/dev/block/bootdevice/by-name/odm	        flags=backup=1;display="Odm Image";flashimg
+/product               erofs	/dev/block/bootdevice/by-name/product		flags=backup=1;fsflags=ro
+/product_image		emmc	/dev/block/bootdevice/by-name/product		flags=backup=1;display="Product Image";flashimg
+/system                erofs	/dev/block/bootdevice/by-name/system		flags=backup=1;fsflags=ro
+/system_image		emmc	/dev/block/bootdevice/by-name/system		flags=backup=1;display="System Image";flashimg
+/vendor		erofs	/dev/block/bootdevice/by-name/vendor		flags=backup=1;fsflags=ro
+/vendor_image		emmc	/dev/block/bootdevice/by-name/vendor		flags=backup=1;display="Vendor Image";flashimg
+/version		emmc	/dev/block/bootdevice/by-name/product		flags=backup=1;display="Version Image";flashimg
+/kernel		emmc	/dev/block/bootdevice/by-name/kernel		flags=backup=1;flashimg
+/ramdisk		emmc	/dev/block/bootdevice/by-name/ramdisk		flags=backup=1;flashimg
+/preas                 erofs   /dev/block/bootdevice/by-name/preavs          flags=backup=1;display="Preas";wipeingui;fsflags=ro
+/preavs                erofs   /dev/block/bootdevice/by-name/preavs          flags=backup=1;display="Preavs";wipeingui;fsflags=ro
+/preload_image		emmc	/dev/block/bootdevice/by-name/preload		flags=backup=1;display="Preload Image";flashimg
 
 
 # Protected partitions
-/oeminfo		emmc    /dev/block/platform/hi_mci.0/by-name/oeminfo		flags=backup=1;display="OEM Info";flashimg
-/splash2		ext4	/dev/block/platform/hi_mci.0/by-name/splash2		flags=backup=1
-/vbmeta		emmc	/dev/block/platform/hi_mci.0/by-name/vbmeta		flags=backup=1;display="VBMeta";flashimg
+/oeminfo		emmc    /dev/block/bootdevice/by-name/oeminfo		flags=backup=1;display="OEM Info";flashimg
+/splash2		ext4	/dev/block/bootdevice/by-name/splash2		flags=backup=1
+/vbmeta		emmc	/dev/block/bootdevice/by-name/vbmeta		flags=backup=1;display="VBMeta";flashimg
 
 # FRP
-/frp			emmc	/dev/block/platform/hi_mci.0/by-name/frp		flags=backup=1;display="FRP";wipeingui;flashimg
+/frp			emmc    /dev/block/bootdevice/by-name/frp	        flags=backup=1;display="FRP";wipeingui;flashimg
 
 # Modem partition
-/modemnvm_cust		emmc	/dev/block/platform/hi_mci.0/by-name/modemnvm_cust	flags=backup=1;flashimg
-/modemnvm_update	emmc	/dev/block/platform/hi_mci.0/by-name/modemnvm_update	flags=backup=1;flashimg
-/modem_fw		emmc	/dev/block/platform/hi_mci.0/by-name/modem_fw	flags=backup=1;display="Modem Firmware";flashimg
-/nvme	        	emmc	/dev/block/platform/hi_mci.0/by-name/nvme	flags=backup=1;display="NVME";flashimg
+/modemnvm_cust		emmc	/dev/block/bootdevice/by-name/modemnvm_cust	flags=backup=1;flashimg
+/modemnvm_update	emmc	/dev/block/bootdevice/by-name/modemnvm_update	flags=backup=1;flashimg
+/modem_fw		emmc	/dev/block/bootdevice/by-name/modem_fw	flags=backup=1;display="Modem Firmware";flashimg
+/nvme	        	emmc	/dev/block/bootdevice/by-name/nvme	        flags=backup=1;display="NVME";flashimg
 
 # Recovery partitions
 /recovery_ramdisk	emmc	/dev/block/bootdevice/by-name/recovery_ramdisk  	flags=display="Recovery Ramdisk";backup=1;flashimg
