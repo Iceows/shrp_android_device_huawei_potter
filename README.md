@@ -21,14 +21,7 @@ git clone https://github.com/iceows/shrp_android_device_huawei_potter shrp/devic
 git clone https://github.com/iceows/android_vendor_omni vendor/omni -b android-9.0
 ```
 
-4- Apply patches
-
-```
-cd <source-dir>
-. apply/apply_patch.sh
-```
-
-5- Then to build for a device with recovery partition:
+4- Then to build for a device with recovery partition:
 ```
 cd <source-dir>
 . build/envsetup.sh
@@ -40,7 +33,7 @@ export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch omni_pot
 
 ```
 
-6- The output dir
+5- The output dir
 ```
 shrp/out/target/product/potter
 ```
