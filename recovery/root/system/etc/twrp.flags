@@ -5,7 +5,7 @@
 /data			f2fs	/dev/block/bootdevice/by-name/userdata	flags=backup=1;encryptable=footer
 /odm			erofs	/dev/block/bootdevice/by-name/odm	  	flags=backup=1;display="Odm"
 /odm_image		emmc	/dev/block/bootdevice/by-name/odm	        flags=backup=1;display="Odm Image";flashimg
-/product               erofs	/dev/block/bootdevice/by-name/product		flags=backup=1;fsflags=ro
+/product               ext4	/dev/block/bootdevice/by-name/product		flags=backup=1;fsflags=rw
 /product_image		emmc	/dev/block/bootdevice/by-name/product		flags=backup=1;display="Product Image";flashimg
 /system                erofs	/dev/block/bootdevice/by-name/system		flags=backup=1;fsflags=ro
 /system_image		emmc	/dev/block/bootdevice/by-name/system		flags=backup=1;display="System Image";flashimg

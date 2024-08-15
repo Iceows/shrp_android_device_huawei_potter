@@ -3,8 +3,10 @@
 /cache			ext4	/dev/block/platform/hi_mci.0/by-name/cache		flags=backup=1
 /cust			erofs	/dev/block/platform/hi_mci.0/by-name/cust		flags=backup=1
 /data			f2fs	/dev/block/platform/hi_mci.0/by-name/userdata		flags=backup=1;encryptable=footer
-/odm			erofs	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1
-/product		emmc	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1;display="Product Image";flashimg
+/odm			erofs	/dev/block/bootdevice/by-name/odm	  	        flags=backup=1;display="ODM"
+/odm_image		emmc	/dev/block/bootdevice/by-name/odm	                flags=backup=1;display="ODM Image";flashimg
+/product               ext4	/dev/block/bootdevice/by-name/product		        flags=backup=1;fsflags=rw
+/product_image		emmc	/dev/block/bootdevice/by-name/product		        flags=backup=1;display="Product Image";flashimg
 /system                erofs	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1
 /system_image		emmc	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;display="System Image";flashimg
 /vendor		erofs	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1
