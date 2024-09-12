@@ -5,7 +5,7 @@
 /data			f2fs	/dev/block/bootdevice/by-name/userdata	flags=backup=1;encryptable=footer
 /odm			erofs	/dev/block/bootdevice/by-name/odm	  	flags=backup=1;display="Odm"
 /odm_image		emmc	/dev/block/bootdevice/by-name/odm	        flags=backup=1;display="Odm Image";flashimg
-/product               ext4	/dev/block/bootdevice/by-name/product		flags=backup=1;fsflags=rw
+/product               exfat	/dev/block/bootdevice/by-name/product		flags=backup=1;fsflags=rw
 /product_image		emmc	/dev/block/bootdevice/by-name/product		flags=backup=1;display="Product Image";flashimg
 /system                erofs	/dev/block/bootdevice/by-name/system		flags=backup=1;fsflags=ro
 /system_image		emmc	/dev/block/bootdevice/by-name/system		flags=backup=1;display="System Image";flashimg
@@ -14,7 +14,7 @@
 /version		emmc	/dev/block/bootdevice/by-name/product		flags=backup=1;display="Version Image";flashimg
 /kernel		emmc	/dev/block/bootdevice/by-name/kernel		flags=backup=1;flashimg
 /ramdisk		emmc	/dev/block/bootdevice/by-name/ramdisk		flags=backup=1;flashimg
-/preas                 erofs   /dev/block/bootdevice/by-name/preavs          flags=backup=1;display="Preas";wipeingui;fsflags=ro
+/preas                 erofs   /dev/block/bootdevice/by-name/preas           flags=backup=1;display="Preas";wipeingui;fsflags=ro
 /preavs                erofs   /dev/block/bootdevice/by-name/preavs          flags=backup=1;display="Preavs";wipeingui;fsflags=ro
 /preload_image		emmc	/dev/block/bootdevice/by-name/preload		flags=backup=1;display="Preload Image";flashimg
 
