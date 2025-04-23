@@ -135,35 +135,3 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
 
-# ---------------------------------------------    
-# SHRP-specific lines
-# --------------------------------------------- 
-
-SHRP_PATH := device/huawei/harry
-SHRP_MAINTAINER := Iceows
-SHRP_DEVICE_CODE := harry
-
-# Recovery Type (for "About" section only)
-# Default (if not set): N/A
-SHRP_REC_TYPE := Treble
-
-# Device Type (for "About" section only)
-# Default (if not set): N/A
-SHRP_DEVICE_TYPE := A/B
-
-#SHRP_OFFICIAL := true
-#SHRP_EDL_MODE := 1
-SHRP_EXPRESS := true
-SHRP_EXPRESS_USE_DATA := true
-
-SHRP_INTERNAL := /sdcard
-SHRP_EXTERNAL := /external_sd
-SHRP_OTG := /usb_otg
-SHRP_FLASH := 1
-SHRP_FLASH_MAX_BRIGHTNESS := 1
-SHRP_CUSTOM_FLASHLIGHT := true
-SHRP_FONP_1 := /sys/class/leds/torch/brightness
-SHRP_REC_TYPE := normal
-SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
-SHRP_DARK := true
-
