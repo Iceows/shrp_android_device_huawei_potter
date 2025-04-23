@@ -18,19 +18,19 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Inherit from potter device
-$(call inherit-product, device/huawei/potter/device.mk)
+# Inherit from harry device
+$(call inherit-product, device/huawei/harry/device.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Release name
-PRODUCT_RELEASE_NAME := potter
-DEVICE_PATH := device/huawei/potter
+PRODUCT_RELEASE_NAME := harry
+DEVICE_PATH := device/huawei/harry
 
 PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
 PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := P Smart 2019-2020
+PRODUCT_MODEL := 10 Lite
 PRODUCT_MANUFACTURER := Huawei
 

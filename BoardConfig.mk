@@ -1,8 +1,8 @@
-DEVICE_PATH := device/huawei/potter
+DEVICE_PATH := device/huawei/harry
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := potter,kirin710
+TARGET_OTA_ASSERT_DEVICE := harry,kirin710
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kirin710
@@ -34,7 +34,7 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := dummykernel
-BOARD_CUSTOM_BOOTIMG_MK := device/huawei/potter/custombootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/huawei/harry/custombootimg.mk
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x8000 --ramdisk_offset 0x01000000 --tags_offset 0x0100
 
 # Partitions
@@ -122,7 +122,7 @@ PLATFORM_VERSION := 16.1.0
 SELINUX_IGNORE_NEVERALLOWS := true
 
 BOARD_SEPOLICY_DIRS += \
-    device/huawei/potter/sepolicy
+    device/huawei/harry/sepolicy
 
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
@@ -139,9 +139,9 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 # SHRP-specific lines
 # --------------------------------------------- 
 
-SHRP_PATH := device/huawei/potter
+SHRP_PATH := device/huawei/harry
 SHRP_MAINTAINER := Iceows
-SHRP_DEVICE_CODE := potter
+SHRP_DEVICE_CODE := harry
 
 # Recovery Type (for "About" section only)
 # Default (if not set): N/A
