@@ -17,8 +17,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_potter.mk
+    $(LOCAL_DIR)/twrp_harry.mk
     
 COMMON_LUNCH_CHOICES := \
-    twrp_potter-userdebug \
-    twrp_potter-eng
+    twrp_harry-userdebug \
+    twrp_harry-eng

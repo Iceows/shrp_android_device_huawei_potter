@@ -1,8 +1,8 @@
-DEVICE_PATH := device/huawei/potter
+DEVICE_PATH := device/huawei/harry
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := potter,kirin710
+TARGET_OTA_ASSERT_DEVICE := harry,kirin710
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kirin710
@@ -34,7 +34,7 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := dummykernel
-BOARD_CUSTOM_BOOTIMG_MK := device/huawei/potter/custombootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/huawei/harry/custombootimg.mk
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x8000 --ramdisk_offset 0x01000000 --tags_offset 0x0100
 
 # Partitions
@@ -74,7 +74,7 @@ TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 
 
 # TWRP specific build flags
-TW_THEME := shrp_dark_portrait_hdpi
+TW_THEME := portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -122,7 +122,7 @@ PLATFORM_VERSION := 16.1.0
 SELINUX_IGNORE_NEVERALLOWS := true
 
 BOARD_SEPOLICY_DIRS += \
-    device/huawei/potter/sepolicy
+    device/huawei/harry/sepolicy
 
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
@@ -134,36 +134,4 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
-
-# ---------------------------------------------    
-# SHRP-specific lines
-# --------------------------------------------- 
-
-SHRP_PATH := device/huawei/potter
-SHRP_MAINTAINER := Iceows
-SHRP_DEVICE_CODE := potter
-
-# Recovery Type (for "About" section only)
-# Default (if not set): N/A
-SHRP_REC_TYPE := Treble
-
-# Device Type (for "About" section only)
-# Default (if not set): N/A
-SHRP_DEVICE_TYPE := A/B
-
-#SHRP_OFFICIAL := true
-#SHRP_EDL_MODE := 1
-SHRP_EXPRESS := true
-SHRP_EXPRESS_USE_DATA := true
-
-SHRP_INTERNAL := /sdcard
-SHRP_EXTERNAL := /external_sd
-SHRP_OTG := /usb_otg
-SHRP_FLASH := 1
-SHRP_FLASH_MAX_BRIGHTNESS := 1
-SHRP_CUSTOM_FLASHLIGHT := true
-SHRP_FONP_1 := /sys/class/leds/torch/brightness
-SHRP_REC_TYPE := normal
-SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
-SHRP_DARK := true
 
