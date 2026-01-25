@@ -45,7 +45,6 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
-
 # System as root
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres splash2 sec_storage
@@ -55,6 +54,7 @@ TARGET_EXFAT_DRIVER := exfat
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EROFS := true
+TARGET_USES_MKE2FS := true
 
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -65,18 +65,16 @@ BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
-
 
 # Fstab and init.rc files
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/twrp.flags
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
+TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
+RECOVERY_SDCARD_ON_DATA := true
 
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
-BOARD_SUPPRESS_SECURE_ERASE := true
-RECOVERY_SDCARD_ON_DATA := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
@@ -84,20 +82,26 @@ TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd_backlight0/brightness
 TW_MAX_BRIGHTNESS := 2048
 TW_DEFAULT_BRIGHTNESS := 1200
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.gs6/lun.%d/file"
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 TW_NO_HAPTICS := true
-TARGET_USES_LOGD := true
 TW_NO_SCREEN_BLANK := true
-TARGET_USES_MKE2FS := true
 TW_INCLUDE_RESETPROP := true
-TWRP_INCLUDE_LOGCAT := true
 TW_USE_NEW_MINADBD := true
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-RECOVERY_SDCARD_ON_DATA := true
+
+# USB
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.gs6/lun.%d/file"
+
+# logcat
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+
+
+BOARD_SUPPRESS_SECURE_ERASE := true
+
 
 # LZMA Compression
 LZMA_COMPRESSION := -9
