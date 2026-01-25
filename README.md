@@ -1,11 +1,11 @@
 # android_device_huawei_potter-SHRP
 
-1- To initialize your local repository using the OMNIROM trees to build SHRP, use a command like this:
+1- To initialize your local repository using the P Smart 2019 trees to build SHRP-Reborn, use a command like this:
 
 ```
-mkdir shrp
-cd shrp
-repo init -u https://github.com/SHRP/manifest.git -b v3_11.0
+mkdir shrp-reborn
+cd shrp-reborn
+repo init -u https://github.com/SHRP-Reborn/manifest.git -b shrp-12.1
 ```
 
 2- Then to sync up:
@@ -17,14 +17,8 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 3- Put this folder on
 
 ```
-git clone https://github.com/iceows/shrp_android_device_huawei_potter shrp/device/huawei/potter -b lineage-20.0
-git clone https://github.com/iceows/android_vendor_omni vendor/omni -b android-11.0
+git clone https://github.com/iceows/shrp_android_device_huawei_potter device/huawei/potter -b android-12.1
 ```
-
-4- Apply patch
-
-```
-./device/huawei/potter/patches/apply-patches.sh 
 ```
 
 5- Then to build for a device with recovery partition:
