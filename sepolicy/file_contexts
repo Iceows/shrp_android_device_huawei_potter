@@ -7,7 +7,22 @@
 /dev/ttyHwGS2		u:object_r:recovery_device:s0
 
 # TEE
-/vendor/bin/teecd             u:object_r:tee_exec:s0
+/vendor/bin/teecd	    u:object_r:tee_exec:s0
 
-# aptouch
-/vendor/bin/aptouch_daemon	  u:object_r:aptouch_exec:s0
+# Touchscreen
+/vendor/bin/aptouch_daemon u:object_r:aptouch_exec:s0
+
+# Tee
+/sec_storage(/.*)?                              				u:object_r:teecd_data_file:s0
+
+# data for tee
+/data/vendor_ce/[0-9]+/sec_storage_data(/.*)?                                u:object_r:teecd_data_file_vendor:s0
+/data/vendor/sec_storage_data                                                u:object_r:teecd_data_file_vendor:s0
+/data/vendor/sec_storage_data(/.*)?                                          u:object_r:teecd_data_file_vendor:s0
+/data/vendor/sec_storage_data_users                                          u:object_r:teecd_data_file_vendor:s0
+/data/vendor/sec_storage_data_users(/.*)?                                    u:object_r:teecd_data_file_vendor:s0
+
+/data/sec_storage_data                                                       u:object_r:teecd_data_file_system:s0
+/data/sec_storage_data(/.*)?                    				u:object_r:teecd_data_file_system:s0
+/data/sec_storage_data_users                                                 u:object_r:teecd_data_file_system:s0
+/data/sec_storage_data_users(/.*)?              				u:object_r:teecd_data_file_system:s0

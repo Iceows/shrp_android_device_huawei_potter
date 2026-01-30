@@ -1,0 +1,10 @@
+# /sec_storage
+type teecd_data_file, file_type, data_file_type;
+
+# TEE
+type teecd_data_file_vendor, file_type, data_file_type;
+type teecd_data_file_system, file_type, data_file_type;
+
+# TouchScreen
+type sysfs_touchscreen, sysfs_type, fs_type;
+
