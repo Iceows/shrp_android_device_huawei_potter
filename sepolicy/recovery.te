@@ -16,7 +16,6 @@ allow recovery apk_private_data_file:dir { rw_dir_perms add_name create setattr 
 
 allow recovery app_data_file:file { getattr };
 
-
 allow recovery adb_data_file:dir { rw_dir_perms add_name create setattr };
 allow recovery adb_data_file:file { rw_file_perms };
 allow recovery adb_data_file:lnk_file { getattr };
@@ -48,12 +47,12 @@ allow recovery proc_filesystems:file { getattr read open };
 allow recovery sysfs:file { read open write setattr getattr create };
 allow recovery sysfs:dir { rw_dir_perms add_name create setattr };
 allow recovery selinuxfs:file { read open write setattr getattr create };
-
+allow recovery selinuxfs:dir { read open};
 
 allow recovery cache_file:dir { mounton };
 allow recovery install_data_file:file { getattr };
 allow recovery kernel:system { module_request };
-allow recovery self:netlink_kobject_uevent_socket { read create };
+
 allow recovery init_exec:file { getattr };
 allow recovery tmpfs:fifo_file { read open create unlink };
 allow recovery block_device:blk_file { open read write ioctl };
@@ -61,14 +60,16 @@ allow recovery block_device:dir { rw_dir_perms add_name create setattr };
 allow recovery block_device:file { unlink setattr };
 allow recovery block_device:lnk_file { create rename };
 
-allow recovery self:netlink_kobject_uevent_socket { bind };
 allow recovery system_data_file:file { open write };
 allow recovery self:capability { fsetid };
 allow recovery configfs:file { getattr };
 allow recovery ashmem_libcutils_device:chr_file { execute };
 allow recovery linkerconfig_file:dir { getattr };
 
+allow recovery self:netlink_selinux_socket { create bind setopt getopt };
+allow recovery self:netlink_kobject_uevent_socket { create bind read create };
 
+allow recovery hal_health_hwservice:hwservice_manager add;
 
 # Properties
 allow recovery default_prop:property_service { set };
