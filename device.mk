@@ -24,6 +24,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Specific lib
+PRODUCT_PACKAGES += \
+    libhwlog.recovery \
+    libimonitor.recovery \
+    libxcollie.recovery
+    
 # Keymaster
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@3.0 \
