@@ -5,6 +5,20 @@
 
 import /init.recovery.kirin710.usb.rc
 
+
+on post-fs
+    # mount secure storage partition for teeos
+    wait /dev/block/by-name/secure_storage
+    mount ext4 /dev/block/by-name/secure_storage /sec_storage rw discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
+    chown root system /sec_storage
+    chmod 0660 /sec_storage
+    start teecd
+
+on init
+    # TEE
+    chmod 0400 /dev/hisi_teelog
+    chown system system /sys/kernel/tui/c_state
+    
 on boot
     start health-hal-2-0
 
