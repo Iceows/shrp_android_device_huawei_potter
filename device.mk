@@ -23,12 +23,42 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-    
+
+# Keymaster
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hardware.keymaster@3.0 \
+    libkeymaster3device \
+    libkeymaster_portable \
+    libkeymaster_messages \
+    libpuresoftkeymasterdevice \
+    libsoft_attestation_cert \
+    libcppbor_external \
+    libcppbor \
+    libkeystore-engine-wifi-hidl \
+    libcppcose_rkp \
+    libhwbinder \
+    libkeystore-wifi-hidl
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster3device.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_portable.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_messages.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libsoft_attestation_cert.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcppcose_rkp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libhwbinder.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@3.0.so
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.hardware.keystore=kirin710
+
 # Blacklist
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.bootimage.build.date.utc \
     ro.build.date.utc
-	
+
 # Usb
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=manufacture,adb,mtp \
