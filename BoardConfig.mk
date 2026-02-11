@@ -129,17 +129,16 @@ SELINUX_IGNORE_NEVERALLOWS := true
 
 BOARD_SEPOLICY_DIRS += \
     device/huawei/potter/sepolicy
-
+    
+    
+ # Recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libandroidicu \
-    libcap \
-    libion \
-    libxml2
+    android.hidl.allocator@1.0 \
+    android.hidl.memory@1.0 \
+    android.hidl.memory.token@1.0 \
+    libhidlmemory
 
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+
 
 # ---------------------------------------------    
 # SHRP-specific lines

@@ -78,6 +78,23 @@ on property:sys.usb.config=mtp,adb
 on property:sys.usb.config=adb
     start adbd
 
+# For libtee and keymaster
+service vendor.keymaster-3-0 /vendor/bin/hw/android.hardware.keymaster@3.0-service
+    override
+    interface android.hardware.keymaster@3.0::IKeymasterDevice default
+    class early_hal
+    user system
+    group root system
+    disabled
+    seclabel u:r:recovery:s0    
+    
+service libteec-2-0 /vendor/bin/hw/vendor.huawei.hardware.libteec@2.0-service
+    class early_hal
+    user system
+    group system readproc
+    disabled
+    seclabel u:r:recovery:s0   
+
 # For touchscreen
 service aptouch /vendor/bin/aptouch_daemon
     user root
@@ -91,11 +108,4 @@ on property:odm.thp.service_enable=1
 on property:odm.thp.service_enable=0
     stop aptouch
     
-service keymaster-3-0 /vendor/bin/hw/android.hardware.keymaster@3.0-service
-    override
-    interface android.hardware.keymaster@3.0::IKeymasterDevice default
-    class early_hal
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0    
+
