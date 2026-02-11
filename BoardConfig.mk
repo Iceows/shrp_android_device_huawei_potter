@@ -72,6 +72,8 @@ TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/twrp.flags
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 
+# Treble
+PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # TWRP specific build flags
 TW_THEME := shrp_dark_portrait_hdpi

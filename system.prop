@@ -10,9 +10,4 @@ ro.sys.sdcardfs=1
 # Selinux
 ro.build.selinux=1
 
-# Treble
-ro.treble.enabled=true
-
-# Additional props
-ro.zygote=zygote64_32
 
