@@ -30,7 +30,7 @@ PRODUCT_PACKAGES += \
     libimonitor.recovery \
     libxcollie.recovery
     
-# Keymaster
+# Keymaster + libteec
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@3.0 \
     libkeymaster3device \
@@ -43,8 +43,12 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     libkeystore-engine-wifi-hidl \
     libcppcose_rkp \
     libhwbinder \
-    libkeystore-wifi-hidl
+    libkeystore-wifi-hidl \
+    android.hidl.memory@1.0 \
+    android.hidl.memory.token@1.0 \
+    libhidlmemory
 
+# Recovery link
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster3device.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_portable.so \
@@ -55,7 +59,10 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcppcose_rkp.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libhwbinder.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@3.0.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@3.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory.token@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libhidlmemory.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.hardware.keystore=kirin710

@@ -131,15 +131,6 @@ BOARD_SEPOLICY_DIRS += \
     device/huawei/potter/sepolicy
     
     
- # Recovery
-TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hidl.allocator@1.0 \
-    android.hidl.memory@1.0 \
-    android.hidl.memory.token@1.0 \
-    libhidlmemory
-
-
-
 # ---------------------------------------------    
 # SHRP-specific lines
 # --------------------------------------------- 
