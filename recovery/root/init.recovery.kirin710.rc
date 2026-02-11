@@ -18,10 +18,13 @@ on init
     # TEE
     chmod 0400 /dev/hisi_teelog
     chown system system /sys/kernel/tui/c_state
+    start hwservicemanager
+    setprop crypto.ready 1
 
 on fs
     start fixlinks
     start hwservicemanager
+    setprop crypto.ready 1
 
 on post-fs
     # mount secure storage partition for teeos
@@ -95,6 +98,16 @@ service libteec-2-0 /vendor/bin/hw/vendor.huawei.hardware.libteec@2.0-service
     disabled
     seclabel u:r:recovery:s0   
 
+on property:crypto.ready=0
+    stop libteec-2-0
+    stop vendor.keymaster-3-0
+
+on property:crypto.ready=1
+    start libteec-2-0
+
+on property:sys.listeners.registered=true
+    start vendor.keymaster-3-0
+    
 # For touchscreen
 service aptouch /vendor/bin/aptouch_daemon
     user root
