@@ -78,8 +78,6 @@ get_prop(recovery, ctl_bootanim_prop)
 get_prop(recovery, ctl_bugreport_prop)
 get_prop(recovery, ctl_console_prop)
 get_prop(recovery, ctl_dumpstate_prop)
-get_prop(recovery, adbd_prop)
-get_prop(recovery, ctl_adbd_prop)
 get_prop(recovery, apexd_prop)
 get_prop(recovery, apk_verity_prop)
 
