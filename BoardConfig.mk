@@ -76,7 +76,7 @@ TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # TWRP specific build flags
-TW_THEME := shrp_dark_portrait_hdpi
+TW_THEME := portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
