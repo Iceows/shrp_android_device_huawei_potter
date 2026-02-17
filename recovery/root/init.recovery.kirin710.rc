@@ -5,8 +5,32 @@
 
 import /init.recovery.kirin710.usb.rc
 
+
+# (init) from (/system/etc/init/hw/init.rc:23)
+# (late-init) from (/system/etc/init/hw/init.rc:82)
+# (fs) from (/system/etc/init/hw/init.rc:147)
+# (post-fs) from (/init.recovery.kirin710.rc:9)
+# (post-fs-data) from (/system/etc/init/hw/init.rc:94)
+# (firmware_mounts_complete) from (/system/etc/init/hw/init.rc:78)
+# (boot) from (/system/etc/init/hw/init.rc:71)
+
+on init
+    # TEE
+    chmod 0400 /dev/hisi_teelog
+    chown system system /sys/kernel/tui/c_state
+
 on fs
     start fixlinks
+    # mount secure storage partition for teeos
+    wait /dev/block/by-name/secure_storage
+    mount ext4 /dev/block/by-name/secure_storage /sec_storage rw discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
+    chown root system /sec_storage
+    chmod 0660 /sec_storage
+    start teecd
+  
+on boot
+    start health-hal-2-0
+
 
 service fixlinks /system/bin/fixlinks.sh
     oneshot
@@ -43,7 +67,7 @@ on property:sys.usb.config=mtp,adb
 
 on property:sys.usb.config=adb
     start adbd
-
+  
 # For touchscreen
 service aptouch /vendor/bin/aptouch_daemon
     user root
@@ -56,3 +80,5 @@ on property:odm.thp.service_enable=1
 
 on property:odm.thp.service_enable=0
     stop aptouch
+    
+
