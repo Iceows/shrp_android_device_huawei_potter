@@ -24,7 +24,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# Specific lib
+# Specific huawei lib
 PRODUCT_PACKAGES += \
     libhwlog.recovery \
     libimonitor.recovery \

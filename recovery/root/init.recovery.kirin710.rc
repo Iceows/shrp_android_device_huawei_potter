@@ -21,6 +21,8 @@ on init
 
 on fs
     start fixlinks
+    start hwservicemanager
+
     # mount secure storage partition for teeos
     wait /dev/block/by-name/secure_storage
     mount ext4 /dev/block/by-name/secure_storage /sec_storage rw discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
@@ -31,6 +33,13 @@ on fs
 on boot
     start health-hal-2-0
 
+
+service hwservicemanager /system/bin/hwservicemanager
+    user root
+    group root
+    disabled
+    onrestart setprop hwservicemanager.ready false
+    seclabel u:r:recovery:s0
 
 service fixlinks /system/bin/fixlinks.sh
     oneshot
@@ -74,6 +83,12 @@ service aptouch /vendor/bin/aptouch_daemon
     group root system shell wakelock
     disabled
     seclabel u:r:aptouch:s0
+
+service tp-hal-1-0 /vendor/bin/hw/vendor.huawei.hardware.tp@1.0-service
+    class hal
+    user system
+    group system
+    seclabel u:r:recovery:s0
 
 on property:odm.thp.service_enable=1
     start aptouch
