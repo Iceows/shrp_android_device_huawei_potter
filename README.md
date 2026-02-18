@@ -18,7 +18,6 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 ```
 git clone https://github.com/iceows/shrp_android_device_huawei_potter device/huawei/potter -b android-11
-git clone https://github.com/iceows/android_vendor_omni vendor/omni -b android-11.0
 ```
 
 4- Apply patch
