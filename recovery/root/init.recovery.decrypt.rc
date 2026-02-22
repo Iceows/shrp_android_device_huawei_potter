@@ -67,7 +67,7 @@ service keystore_auth /system/bin/keystore_auth
 
 # keystore is started and stopped on demand by TWRP
 service keystore /system/bin/keystore /tmp/misc/keystore
-    user root
+    user system
     group root system drmrpc readproc log
     disabled
     seclabel u:r:recovery:s0
