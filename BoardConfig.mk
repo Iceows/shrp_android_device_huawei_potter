@@ -75,6 +75,10 @@ RECOVERY_SDCARD_ON_DATA := true
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
+# Crypto
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 TW_EXCLUDE_DEFAULT_USB_INIT := true
