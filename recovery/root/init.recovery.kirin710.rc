@@ -68,12 +68,6 @@ service aptouch /vendor/bin/aptouch_daemon
     disabled
     seclabel u:r:aptouch:s0
 
-service tp-hal-1-0 /vendor/bin/hw/vendor.huawei.hardware.tp@1.0-service
-    class hal
-    user system
-    group system
-    seclabel u:r:recovery:s0
-
 on property:odm.thp.service_enable=1
     start aptouch
 
