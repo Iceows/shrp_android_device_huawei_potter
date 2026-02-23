@@ -14,8 +14,6 @@ on init
     chmod 0777 /tmp/misc/
     chmod 0777 /tmp/misc/keystore/
 
-    start hwservicemanager
-    start servicemanager
     
 on fs
     start fixlinks
@@ -51,20 +49,6 @@ on post-fs-data
     
     mkdir /data/vendor/sec_storage_data_users 0700 system system
     restorecon /data/vendor/sec_storage_data_users
-
-
-service hwservicemanager /system/bin/hwservicemanager
-    user root
-    group root
-    disabled
-    onrestart setprop hwservicemanager.ready false
-    seclabel u:r:recovery:s0
-
-service servicemanager /system/bin/servicemanager
-    user root
-    group root readproc
-    disabled
-    seclabel u:r:recovery:s0
 
 on property:crypto.ready=1
     start teecd
