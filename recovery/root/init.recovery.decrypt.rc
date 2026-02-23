@@ -16,8 +16,6 @@ on init
 
     
 on fs
-    start fixlinks
-
     # mount secure storage partition for teeos
     wait /dev/block/by-name/secure_storage
     mount ext4 /dev/block/by-name/secure_storage /sec_storage rw discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
@@ -50,19 +48,17 @@ on post-fs-data
     mkdir /data/vendor/sec_storage_data_users 0700 system system
     restorecon /data/vendor/sec_storage_data_users
 
-on property:crypto.ready=1
-    start teecd
-    
 # && property:hwservicemanager.ready=true is for Oreo+ build trees
 # hwservicemanager doesn't exist in older trees
 on property:crypto.ready=1 && property:hwservicemanager.ready=true
+    start teecd
     start keystore
     start libteec-2-0
     setprop vendor.sys.listeners.registered true
 
 on property:vendor.sys.listeners.registered=true
-     start keymaster-3-0
-     start gatekeeper-1-0
+    start keymaster-3-0
+    start gatekeeper-1-0
 
 on property:crypto.ready=0
     stop gatekeeper-1-0
