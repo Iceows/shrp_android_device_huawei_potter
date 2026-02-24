@@ -1,0 +1,24 @@
+
+allow recovery init:key { write };
+allow recovery self:key { search };
+
+allow recovery keychain_data_file:dir { getattr };
+allow recovery keychain_data_file:dir { read };
+allow recovery keychain_data_file:dir { open };
+allow recovery keychain_data_file:dir { search };
+allow recovery keychain_data_file:file { getattr };
+
+allow recovery keystore_data_file:dir { getattr };
+
+allow recovery systemkeys_data_file:dir { getattr };
+allow recovery systemkeys_data_file:dir { read };
+allow recovery systemkeys_data_file:dir { open };
+allow recovery systemkeys_data_file:dir { search };
+
+allow recovery adb_keys_file:dir { getattr };
+allow recovery adb_keys_file:dir { read };
+allow recovery adb_keys_file:dir { open };
+allow recovery adb_keys_file:dir { search };
+
+get_prop(recovery, keyguard_config_prop)
+

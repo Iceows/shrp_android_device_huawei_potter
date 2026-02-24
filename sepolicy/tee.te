@@ -3,3 +3,19 @@ allow tee rootfs:file { read open write setattr getattr create execute entrypoin
 allow tee device:chr_file { open read write ioctl };
 allow tee rootfs:dir { read };
 
+allow tee teecd_device:chr_file { open read write ioctl };
+
+allow tee hal_keymaster_default:dir { search };
+allow tee hal_keymaster_default:file { read };
+allow tee hal_keymaster_default:file { open };
+allow tee hal_keymaster_default:process { getattr };
+allow tee hal_keymaster_default:file { getattr };
+
+
+allow tee hal_gatekeeper_default:dir { search };
+allow tee hal_gatekeeper_default:file { read };
+allow tee hal_gatekeeper_default:file { open };
+allow tee hal_gatekeeper_default:process { getattr };
+allow tee hal_gatekeeper_default:file { getattr };
+
+

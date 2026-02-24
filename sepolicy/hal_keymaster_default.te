@@ -1,0 +1,9 @@
+allow hal_keymaster_default rootfs:file { getattr execute read open };
+allow hal_keymaster_default rootfs:dir { read open };
+allow hal_keymaster_default tee:unix_stream_socket { connectto };
+allow hal_keymaster_default tee:fd { use };
+allow hal_keymaster_default teecd_device:chr_file { ioctl read write };
+
+binder_call(hal_keymaster_default, recovery)
+binder_call(recovery, hal_keymaster_default)
+

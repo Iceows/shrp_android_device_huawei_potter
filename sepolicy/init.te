@@ -1,5 +1,10 @@
 allow init kernel:security { setcheckreqprot };
 allow init kernel:system { module_request };
 allow init functionfs:dir { mounton };
-allow init sysfs:file { setattr };
+allow init sysfs:file { setattr write open };
+
+allow init tee_exec:file { relabelto };
+allow init hal_gatekeeper_default_exec:file { relabelto };
+allow init hal_keymaster_default_exec:file { relabelto };
+allow init hal_libteec_default_exec:file { relabelto };
 
