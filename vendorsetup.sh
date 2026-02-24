@@ -21,10 +21,10 @@ ccache -M 15G
 
 # Apply necessary F2FS-tools patch
 cd $(realpath .)/external/f2fs-tools/
-if git apply -p1 $OLDPWD/device/huawei/charlotte/prebuilts/0001-f2fs-tools-remove-CP_NAT_BITS_FLAG.patch; then
+if git apply -p1 $OLDPWD/device/huawei/potter/patches/0001-f2fs-tools-remove-CP_NAT_BITS_FLAG.patch; then
     echo "Patch applied to F2FS-tools"
     cd $OLDPWD
-elif git apply -p1 --reverse --check $OLDPWD/device/huawei/charlotte/prebuilts/0001-f2fs-tools-remove-CP_NAT_BITS_FLAG.patch; then
+elif git apply -p1 --reverse --check $OLDPWD/device/huawei/potter/patches/0001-f2fs-tools-remove-CP_NAT_BITS_FLAG.patch; then
     echo "F2FS-tools patch has already been applied, skipping..."
     cd $OLDPWD
 else
