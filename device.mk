@@ -74,10 +74,12 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
 
 # Usb
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=manufacture,adb,mtp \
+    persist.sys.usb.config=hisuite,adb,mtp \
     ro.sys.usb.storage.type=mtp,adb \
+    sys.usb.config=mtp \
     sys.usb.configfs=1 \
     sys.usb.controller=ff100000.dwc3 \
+    sys.usb.ffs.aio_compat=true \
     ro.secure=0 \
     ro.adb.secure=0 \
     ro.allow.mock.location=0 \

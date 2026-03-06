@@ -79,6 +79,9 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 
+# MTP Device
+TW_MTP_DEVICE := "/dev/mtp_usb"
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 TW_EXCLUDE_DEFAULT_USB_INIT := true
