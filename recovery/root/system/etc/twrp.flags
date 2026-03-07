@@ -1,6 +1,8 @@
 # mount point    fstype    device                device2               flags
 # System partitions - for erofs partition you can also specify ext4 fstype (Huawei strange !!)
 /cache                 ext4     /dev/block/bootdevice/by-name/cache           flags=backup=1
+/splash2               ext4    /dev/block/bootdevice/by-name/splash2     flags=backup=1
+
 /cust                  erofs    /dev/block/bootdevice/by-name/cust            flags=backup=1;display="Cust";fsflags=ro
 /data                  f2fs     /dev/block/bootdevice/by-name/userdata        flags=backup=1;encryptable=footer
 /odm                   erofs    /dev/block/bootdevice/by-name/odm             flags=backup=1;display="Odm"
@@ -23,7 +25,9 @@
 
 # Protected partitions
 /oeminfo     emmc    /dev/block/bootdevice/by-name/oeminfo     flags=backup=1;display="OEM Info";flashimg
-/splash2     ext4    /dev/block/bootdevice/by-name/splash2     flags=backup=1
+/misc        emmc    /dev/block/bootdevice/by-name/misc        flags=display="Misc"
+
+/sec_storage ext4    /dev/block/bootdevice/by-name/secure_storage     flags=display="Secure Storage";fsflags="rw,nosuid,nodev,discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0"
 /vbmeta      emmc    /dev/block/bootdevice/by-name/vbmeta      flags=backup=1;display="VBMeta";flashimg
 /nvme        emmc    /dev/block/bootdevice/by-name/nvme        flags=backup=1;display="NVME";flashimg
 

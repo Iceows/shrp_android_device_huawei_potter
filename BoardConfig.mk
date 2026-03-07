@@ -47,7 +47,7 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # System as root
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres splash2 sec_storage
+BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres splash2 sec_storage mnvm2:0 modem_fw
 
 # File System
 TARGET_EXFAT_DRIVER := exfat
