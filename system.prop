@@ -10,4 +10,5 @@ ro.sys.sdcardfs=1
 # Selinux
 ro.build.selinux=1
 
-
+# Set crypto algo
+ro.crypto.volume.filenames_mode=aes-256-cts
