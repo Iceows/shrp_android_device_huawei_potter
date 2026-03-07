@@ -5,6 +5,7 @@ allow kernel block_device:dir { rw_dir_perms create setattr add_name search };
 
 allow kernel rootfs:file { rw_file_perms create setattr unlink };
 allow kernel unlabeled:file { read write };
+allow kernel unlabeled:dir { read write };
 
 allow kernel recovery:fd { use };
 allow kernel block_device:blk_file { open read write ioctl setattr getattr};

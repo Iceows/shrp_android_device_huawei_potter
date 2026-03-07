@@ -12,7 +12,7 @@ allow tee teecd_data_file_system:file { getattr };
 
 allow teecd_data_file self:filesystem { associate };
 
-allowxperm tee teecd_device:chr_file ioctl { 0x7401 0x7402 0x7403 0x7405 0x7406 0x7407 0x740e 0x7411 0x7412 0x7414 0x7415 };
+allowxperm tee teecd_device:chr_file ioctl { 0x7401 0x7402 0x7403 0x7405 0x7406 0x7407 0x740e 0x7411 0x7412 0x7413 0x7414 0x7415 };
 
 allow hal_keymaster_default teecd_device:chr_file { ioctl read write };
 allow hal_gatekeeper_default teecd_device:chr_file { ioctl read write };
