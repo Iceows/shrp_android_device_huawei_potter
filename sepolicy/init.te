@@ -1,5 +1,20 @@
 allow init kernel:security { setcheckreqprot };
 allow init kernel:system { module_request };
 allow init functionfs:dir { mounton };
-allow init sysfs:file { setattr };
+allow init sysfs:file { setattr write open };
 
+allow init tee_exec:file { relabelto };
+allow init hal_gatekeeper_default_exec:file { relabelto };
+allow init hal_keymaster_default_exec:file { relabelto };
+allow init hal_libteec_default_exec:file { relabelto };
+
+allow init teecd_data_file:filesystem { mount relabelto relabelfrom };
+allow init teecd_data_file:dir { mounton };
+
+allow splash2_data_file self:filesystem { associate };
+allow modem_fw_file self:filesystem { associate };
+allow modem_nv_file self:filesystem { associate };
+
+allow init splash2_data_file:filesystem { mount relabelto relabelfrom };
+allow init modem_fw_file:filesystem { mount relabelto relabelfrom };
+allow init modem_fw_file:filesystem { mount relabelto relabelfrom };

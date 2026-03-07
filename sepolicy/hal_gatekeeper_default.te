@@ -1,0 +1,14 @@
+allow hal_gatekeeper_default tee:unix_stream_socket { connectto };
+allow hal_gatekeeper_default tee:fd { use };
+allow hal_gatekeeper_default teecd_device:chr_file { ioctl read write };
+allow hal_gatekeeper_default rootfs:dir { read open };
+allow hal_gatekeeper_default rootfs:file { read execute getattr open};
+
+binder_call(hal_gatekeeper_default, recovery)
+binder_call(recovery, hal_gatekeeper_default)
+
+allow hal_gatekeeper_default rootfs:file { read execute getattr open map};
+allow hal_gatekeeper_default rootfs:dir { open read };
+
+allow hal_gatekeeper_default kmsg_device:chr_file { getattr };
+allow hal_gatekeeper_default kernel:system { module_request };

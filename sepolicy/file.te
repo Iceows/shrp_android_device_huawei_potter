@@ -5,6 +5,15 @@ type teecd_data_file, file_type, data_file_type;
 type teecd_data_file_vendor, file_type, data_file_type;
 type teecd_data_file_system, file_type, data_file_type;
 
+# /splash2
+type splash2_data_file, file_type, data_file_type;
+
 # TouchScreen
 type sysfs_touchscreen, sysfs_type, fs_type;
+
+# Modem
+type modem_fw_file, file_type, mlstrustedobject;
+type modem_nv_file, file_type, mlstrustedobject;
+type modem_log_file, file_type, mlstrustedobject;
+type modem_secure_file, file_type, mlstrustedobject;
 

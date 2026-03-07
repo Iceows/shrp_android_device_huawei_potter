@@ -7,9 +7,23 @@ allow kernel rootfs:file { rw_file_perms create setattr unlink };
 allow kernel unlabeled:file { read write };
 
 allow kernel recovery:fd { use };
-allow kernel block_device:blk_file { open read write ioctl setattr};
+allow kernel block_device:blk_file { open read write ioctl setattr getattr};
+
 allow kernel self:capability { mknod };
 allow kernel self:capability2 { syslog };
+allow kernel self:system { module_request };
 
 allow kernel device:chr_file { open create getattr setattr read write lock append open unlink };
+allow kernel device:blk_file create;
 
+# Allow kernel to set and get attributes on device nodes (dm-0, dm-1, etc)
+allow kernel device:blk_file { open create getattr setattr read write lock append open unlink };
+
+allow kernel sysfs_devices_system_cpu:file { open read write ioctl setattr getattr };
+
+allow kernel modem_nv_file:dir { rw_dir_perms create setattr add_name search rmdir };
+allow kernel modem_fw_file:dir { rw_dir_perms create setattr add_name search rmdir };
+allow kernel splash2_data_file:dir { rw_dir_perms create setattr add_name search rmdir };
+
+allow kernel modem_nv_file:file { rw_file_perms getattr setattr };
+allow kernel modem_fw_file:file { rw_file_perms getattr setattr };

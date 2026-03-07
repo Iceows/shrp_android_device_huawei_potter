@@ -3,5 +3,15 @@ type hal_libteec_default_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(hal_libteec_default)
 
-get_prop(hal_libteec_default, hwservicemanager_prop)
 binder_call(hal_libteec_default, hwservicemanager)
+binder_call(hal_libteec_default, recovery)
+
+allow hal_libteec_default rootfs:file { read execute getattr open map};
+allow hal_libteec_default rootfs:dir { open read };
+
+allow hal_libteec_default default_android_hwservice:hwservice_manager { add find list };
+allow hal_libteec_default hidl_base_hwservice:hwservice_manager { add find list };
+
+get_prop(hal_libteec_default, hwservicemanager_prop)
+
+

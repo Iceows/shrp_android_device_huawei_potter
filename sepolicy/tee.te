@@ -1,5 +1,27 @@
 allow tee self:process { execmem };
-allow tee rootfs:file { read open write setattr getattr create execute entrypoint };
-allow tee device:chr_file { open read write ioctl };
+allow tee self:capability { dac_read_search };
+allow tee rootfs:file { read open write setattr getattr create execute entrypoint map };
+allow tee device:chr_file { open read write ioctl map };
 allow tee rootfs:dir { read };
+
+allow tee teecd_device:chr_file { open read write ioctl };
+
+allow tee teecd_data_file_system:dir { search };
+allow tee teecd_data_file_system:file { getattr };
+
+
+allow teecd_data_file self:filesystem { associate };
+
+allowxperm tee teecd_device:chr_file ioctl { 0x7401 0x7402 0x7403 0x7405 0x7406 0x7407 0x740e 0x7411 0x7412 0x7414 0x7415 };
+
+allow hal_keymaster_default teecd_device:chr_file { ioctl read write };
+allow hal_gatekeeper_default teecd_device:chr_file { ioctl read write };
+
+allow tee hal_keymaster_default:dir { search };
+allow tee hal_keymaster_default:file { read open getattr };
+allow tee hal_keymaster_default:process { getattr };
+
+allow tee hal_gatekeeper_default:dir { search };
+allow tee hal_gatekeeper_default:file { read open getattr };
+allow tee hal_gatekeeper_default:process { getattr };
 

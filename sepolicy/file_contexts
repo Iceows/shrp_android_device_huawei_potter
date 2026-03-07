@@ -10,7 +10,7 @@
 /vendor/bin/teecd                                                     u:object_r:tee_exec:s0
 /vendor/bin/hw/vendor.huawei.hardware.libteec@2.0-service             u:object_r:hal_libteec_default_exec:s0
 /vendor/bin/hw/android.hardware.keymaster@3.0-service                 u:object_r:hal_keymaster_default_exec:s0
-/vendor/bin/hw/android.hardware.gatekeeper@1.0-service                 u:object_r:hal_gatekeeper_default_exec:s0
+/vendor/bin/hw/android.hardware.gatekeeper@1.0-service                u:object_r:hal_gatekeeper_default_exec:s0
 /sys/kernel/tui/c_state                                               u:object_r:sysfs:s0
 /dev/tc_ns_client                                                     u:object_r:teecd_device:s0
 

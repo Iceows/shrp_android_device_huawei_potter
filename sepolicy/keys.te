@@ -1,0 +1,11 @@
+
+allow recovery init:key { write };
+allow recovery self:key { search };
+
+allow recovery keychain_data_file:dir { getattr read open search };
+allow recovery keychain_data_file:file { getattr };
+
+allow recovery keystore_data_file:dir { getattr };
+allow recovery systemkeys_data_file:dir { getattr read open search };
+allow recovery adb_keys_file:dir { getattr read open search };
+
