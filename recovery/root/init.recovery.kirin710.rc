@@ -4,7 +4,7 @@
 #
 
 import /init.recovery.kirin710.usb.rc
-import /init.recovery.decrypt.rc
+import /init.recovery.decrypt.fbe.rc
 
 
 # (init) from (/system/etc/init/hw/init.rc:23)

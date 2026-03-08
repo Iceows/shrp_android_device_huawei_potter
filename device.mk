@@ -19,7 +19,7 @@ LOCAL_PATH := device/huawei/potter
 # Kernel
 PRODUCT_COPY_FILES += \
     device/huawei/potter/dummykernel:kernel
-    
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
@@ -29,6 +29,10 @@ PRODUCT_PACKAGES += \
     libhwlog.recovery \
     libimonitor.recovery \
     libxcollie.recovery
+
+# huawei standard decryption
+PRODUCT_PACKAGES += \
+    emui9_decrypt_fbe \
 
 # Keymaster + libteec
 TARGET_RECOVERY_DEVICE_MODULES += \
