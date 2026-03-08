@@ -29,8 +29,9 @@ on post-fs
     chmod 600 /sec_storage
 
     # mount secure storage partition for teeos
-    wait /dev/block/by-name/secure_storage
-    mount ext4 /dev/block/by-name/secure_storage /sec_storage rw discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
+    wait /dev/block/bootdevice/by-name/secure_storage
+    mount ext4 /dev/block/bootdevice/by-name/secure_storage /sec_storage rw discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
+    restorecon /secure_storage
     
     # restore sepolicy label because teecd check label
     restorecon /vendor/bin/teecd
@@ -59,9 +60,9 @@ on post-fs-data
 
     # Tee daemon
     start teecd
-        
+
+    # Install TWRP FBE
     install_keyring
-    
     setprop crypto.ready 1
     
 # && property:hwservicemanager.ready=true is for Oreo+ build trees
