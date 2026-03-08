@@ -29,39 +29,28 @@ PRODUCT_PACKAGES += \
     libhwlog.recovery \
     libimonitor.recovery \
     libxcollie.recovery
-    
+
 # Keymaster + libteec
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster3device \
-    libkeymaster_portable \
-    libkeymaster_messages \
     libpuresoftkeymasterdevice \
-    libsoft_attestation_cert \
     libcppbor_external \
     libcppbor \
     libcppcose_rkp \
-    libhwbinder \
-    android.hardware.keymaster@3.0 \
     android.hidl.memory@1.0 \
     android.hidl.memory.token@1.0 \
     libhidlmemory
-    
+
 # Recovery link
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster3device.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_portable.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_messages.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libsoft_attestation_cert.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcppcose_rkp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libhwbinder.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@3.0.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory@1.0.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory.token@1.0.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libhidlmemory.so
-
 
 # Blacklist
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
