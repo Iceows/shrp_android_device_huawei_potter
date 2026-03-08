@@ -4,8 +4,8 @@ allow kernel tmpfs:dir { rw_dir_perms create setattr add_name search };
 allow kernel block_device:dir { rw_dir_perms create setattr add_name search };
 
 allow kernel rootfs:file { rw_file_perms create setattr unlink };
-allow kernel unlabeled:file { read write };
-allow kernel unlabeled:dir { read write };
+allow kernel unlabeled:file { read write create };
+allow kernel unlabeled:dir { read write add_name };
 
 allow kernel recovery:fd { use };
 allow kernel block_device:blk_file { open read write ioctl setattr getattr};
@@ -28,3 +28,5 @@ allow kernel splash2_data_file:dir { rw_dir_perms create setattr add_name search
 
 allow kernel modem_nv_file:file { rw_file_perms getattr setattr };
 allow kernel modem_fw_file:file { rw_file_perms getattr setattr };
+allow kernel splash2_data_file:file { rw_file_perms create };
+
