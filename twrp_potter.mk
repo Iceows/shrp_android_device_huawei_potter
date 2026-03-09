@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
 # Inherit from potter device
 $(call inherit-product, device/huawei/potter/device.mk)
 

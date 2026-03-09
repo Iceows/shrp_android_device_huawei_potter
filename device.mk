@@ -16,6 +16,9 @@
 
 LOCAL_PATH := device/huawei/potter
 
+# Inherit from twrp-common
+$(call inherit-product, device/huawei/twrp-common/kirin.mk)
+
 # Kernel
 PRODUCT_COPY_FILES += \
     device/huawei/potter/dummykernel:kernel
@@ -24,37 +27,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# Specific huawei lib
-PRODUCT_PACKAGES += \
-    libhwlog.recovery \
-    libimonitor.recovery \
-    libxcollie.recovery
+BOARD_USES_EMUI9_FBE_DECRYPTION := true
 
-# huawei standard decryption
-PRODUCT_PACKAGES += \
-    emui9_decrypt_fbe \
 
-# Keymaster + libteec
-TARGET_RECOVERY_DEVICE_MODULES += \
-    libkeymaster3device \
-    libpuresoftkeymasterdevice \
-    libcppbor_external \
-    libcppbor \
-    libcppcose_rkp \
-    android.hidl.memory@1.0 \
-    android.hidl.memory.token@1.0 \
-    libhidlmemory
-
-# Recovery link
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster3device.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcppcose_rkp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory.token@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libhidlmemory.so
 
 # Blacklist
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
