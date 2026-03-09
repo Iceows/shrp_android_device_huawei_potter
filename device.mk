@@ -27,10 +27,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-BOARD_USES_EMUI9_FBE_DECRYPTION := true
-
-
-
 # Blacklist
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.bootimage.build.date.utc \
