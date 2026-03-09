@@ -16,6 +16,9 @@
 
 LOCAL_PATH := device/huawei/potter
 
+# Crypto
+EMUI9_FBE_CRYPTO := true
+
 # Inherit from twrp-common
 $(call inherit-product, device/huawei/twrp-common/kirin.mk)
 

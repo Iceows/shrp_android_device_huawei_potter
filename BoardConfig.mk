@@ -78,7 +78,6 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
-BOARD_USES_EMUI9_FBE_DECRYPTION := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
