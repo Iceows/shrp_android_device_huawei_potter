@@ -27,6 +27,7 @@ service fixlinks /system/bin/fixlinks.sh
 
 service oeminfo_nvm /system/sbin/true
     disabled
+    seclabel u:r:recovery:s0
 
 on boot
     start health-hal-2-0
