@@ -6,7 +6,7 @@
 /dev/block/bootdevice/by-name/product    /product    erofs     defaults        defaults
 /dev/block/bootdevice/by-name/odm        /odm        erofs     defaults        defaults
 
-/dev/block/bootdevice/by-name/userdata   /data       f2fs      defaults        length=-16384,fileencryption=aes-256-xts:aes-256-cts,reservedsize=20M
+/dev/block/bootdevice/by-name/userdata   /data	     f2fs     nosuid,nodev,noatime,discard,inline_data,inline_xattr	wait,check,fileencryption=aes-256-xts:aes-256-cts
 
 /dev/block/bootdevice/by-name/cust       /cust       ext4      defaults        defaults
 
