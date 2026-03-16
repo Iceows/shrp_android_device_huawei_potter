@@ -1,8 +1,22 @@
+#
+# Copyright (C) 2026 Iceows
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Inherit from common twrp-common
+include device/huawei/twrp-common/BoardConfigCommon.mk
+
 DEVICE_PATH := device/huawei/potter
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := potter,kirin710
+
+# All 64 bits
+TARGET_IS_64_BIT := true
+TARGET_USES_64_BIT_BINDER := true
+TARGET_SUPPORTS_64_BIT_APPS := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kirin710
@@ -12,23 +26,6 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := kirin710
 TARGET_BOARD_PLATFORM_GPU := kirin
 BUILD_BROKEN_DUP_RULES := true
-
-# Architecture
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_SMP := true
-
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-
-TARGET_USES_64_BIT_BINDER := true
-TARGET_SUPPORTS_64_BIT_APPS := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
