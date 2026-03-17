@@ -20,6 +20,10 @@ $(call inherit-product, device/huawei/potter/device.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
+# Extra required packages - debug
+PRODUCT_PACKAGES += \
+    twrpfbe
+
 # Release name
 PRODUCT_RELEASE_NAME := potter
 DEVICE_PATH := device/huawei/potter
