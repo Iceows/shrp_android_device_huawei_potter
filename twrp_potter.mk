@@ -20,9 +20,9 @@ $(call inherit-product, device/huawei/potter/device.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Extra required packages - debug
+# Extra required packages - bruteforce package to find fbe password
 PRODUCT_PACKAGES += \
-    twrpfbe
+    brutefbe
 
 # Release name
 PRODUCT_RELEASE_NAME := potter
